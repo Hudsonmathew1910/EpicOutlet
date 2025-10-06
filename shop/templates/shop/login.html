@@ -1,0 +1,37 @@
+{% extends "shop/layouts/main.html" %}
+
+{% block title %}
+Login | EpicOutlet
+{% endblock title %}
+
+{% block content %}
+<div class="container" id="margin-reg">
+    <div>
+        <h1 class="text-center mb-4"> User Login </h1>
+        </div>
+        {% include "shop/inc/message.html" %}
+</div>
+<section class="py-4 my-5 d-flex justify-content-center" style="min-height:70vh;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        {% comment %} <h1 class="text-center mb-4">User Login</h1> {% endcomment %}
+        <form method="post" action="">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Enter your Username" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your Password" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock content %}

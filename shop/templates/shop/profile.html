@@ -1,0 +1,33 @@
+{% extends "shop/layouts/main.html" %}
+{% load static %}
+
+{% block title %}
+Profile | EpicOutlet
+{% endblock title %}
+
+{% block content %}
+<div class="container" id="margin-shop" style="margin-bottom:80px; margin-top: 100px;">
+    {% include "shop/inc/message.html" %}
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card my-4 shadow-sm text-center img-hover-shadow" style="background-color: #F0F5F9; border-radius: 10px;">
+        <div class="card-body">
+
+          <img src="{{ profile_url }}" alt="User Avatar" class="rounded-circle" width="100" height="100" style="border: 2px solid #ffffffff; box-shadow: 1px 1px 5px grey; border-radius: 50%;">
+
+          <h4 class="card-title text-primary mb-1">{{ request.user.username }}</h4>
+          <p class="text-muted">{{ request.user.email }}</p>
+          
+          <div class="d-grid gap-2 mt-3">
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{% url "fav_page" %}" class="btn btn-primary"><i class="fa fa-thumbs-up"></i> Favourite</a>
+            <a href="{% url "cart" %}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Cart</a>
+            </div>
+            <a href="{% url 'logout' %}" class="btn btn-outline-danger"><i class="fa fa-sign-in"></i> Logout</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends "shop/layouts/main.html" %}
+
+
+{% block title %}
+EpicOutlet | Online Shopping
+{% endblock title %}
+
+{% block content %}
+{% include "shop/inc/slider.html" %}
+    <div class="container" id="margin-shop" style="margin-bottom:80px;">
+        {% include "shop/inc/message.html" %}
+        <h1>Best deals</h1>
+        <div class="row">
+            {% for item in protrend %}
+            <div class="col-md-4 col-lg-3">
+                <div class="card my-3 shadow-sm img-hover-shadow" style="background-color: #F0F5F9;">
+                    <a href="{% url "product_view" item.catagory.name item.name %}" class="text-decoration-none text-body d-block">
+                    <img src="{{item.product_image.url}}" class="card-img-top category-img" alt="Categories">
+                    <div class="card-body" style="margin-bottom:20px;">
+                        <h5 class="card-title text-primary">{{item.name}}</h5>
+                        <p class="card-text txt-align">
+                            <span class="float-start old-pri"><s>Rs.{{ item.orginal_price|stringformat:'d' }}</s></span>
+                            <span class="float-end new-pri">Rs.{{ item.selling_price|stringformat:'d' }}</span>
+                        </p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

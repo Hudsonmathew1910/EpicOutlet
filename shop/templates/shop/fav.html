@@ -1,0 +1,47 @@
+{% extends "shop/layouts/main.html" %}
+
+{% block title %}
+ Saved | EpicOutlet
+{% endblock title  %}
+
+{% block content %}
+<section class="py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">Favourite</h4>
+                {% comment %} <hr style="broder-color: white;"> {% endcomment %}
+            </div>
+            {% if favitm %}
+            <table class="table table-striped-columns tab">
+                <thead>
+                    <tr>
+                    {% comment %} <th scope="col">Id</th> {% endcomment %}
+                    <th style="width: 50px;" scope="col">Product</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Trash</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in favitm %}
+                    <tr>
+                        {% comment %} <th scope="row">{{ item.product_id }}</th> {% endcomment %}
+                        <td><img src="{{ item.product.product_image.url }}" class="img-fluid rounded" style="height: 75px; width: 75px; object-fit: cover;" alt="{{ item.product.name }}"></td>
+                        <td>{{ item.product }}</td>
+                        <td class="amt">₹ {{ item.product.selling_price }}</td>
+                        <td><a href="{% url "remove_fav" item.id %}" type="button" onclick="return confirm('Are you sure to Remove?')" class="btn btn-danger"><i class="fa fa-trash"></i> Remove</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="text-center py-3">You haven't added any favorite product</p>
+            {% endif %}
+    </div>
+</section>
+<section style="padding-bottom:100px;">
+</section>
+
+{% endblock content %}
+

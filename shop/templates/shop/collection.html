@@ -1,0 +1,47 @@
+{% extends "shop/layouts/main.html" %}
+
+{% block title %}
+Collections | EpicOutlet
+{% endblock title %}
+
+{% block content %}
+<section style="background-color:#C9D6DF;">
+<section class="py-5 text-center container" style="background-color:#F0F5F9; border-radius: 0 0 10px 10px;">
+  <div class="row py-lg-5" style="margin-top: 20px;">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">{{ request.user.username }}</h1>
+      <p class="lead text-muted">Explore our most popular products. Updated hourly.</p>
+      {% if user.is_authenticated  %}
+      <a href="{% url "profile" %}" class="btn btn-primary my-2">Account</a>
+      <a href="{% url "fav_page" %}" class="btn btn-secondary my-2">Favourite</a>
+      {% else %}
+      <a href="{% url "login" %}" class="btn btn-primary my-2">Already User</a>
+      <a href="{% url "register" %}" class="btn btn-secondary my-2">Register</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<section class="py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">Catagories</h4>
+                <hr style="broder-color: white;">
+            </div>
+            {% for item in category %}
+            <div class="col custom-col-5">
+                <div class="card my-3 shadow-sm img-hover-shadow" style="background-color:#F0F5F9;">
+                    <a href="{% url 'collection_view' item.name %}" class="text-decoration-none text-body d-block">
+                    <img src="{{item.image.url}}" class="card-img-top category-img" alt="Categories">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{item.name}}</h5>
+                        <p class="card-text txt-align">{{ item.description }}</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</section>
+</section>
+{% endblock content %}

@@ -1,0 +1,61 @@
+{% extends "shop/layouts/main.html" %}
+
+{% block title %}
+ Your Cart | EpicOutlet
+{% endblock title  %}
+
+{% block content %}
+<section class="py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">Your Cart</h4>
+                {% comment %} <hr style="broder-color: white;"> {% endcomment %}
+            </div>
+            <table class="table table-striped-columns tab">
+                <thead>
+                    <tr>
+                    {% comment %} <th scope="col">Id</th> {% endcomment %}
+                    <th style="width: 50px;" scope="col">Product</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Date / Time</th>
+                    <th scope="col">Trash</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in ucart %}
+                    <tr>
+                        {% comment %} <th scope="row">{{ item.product_id }}</th> {% endcomment %}
+                        <td><img src="{{ item.product.product_image.url }}" class="img-fluid rounded" style="height: 75px; width: 75px; object-fit: cover;" alt="{{ item.product.name }}"></td>
+                        <td>{{ item.product }}</td>
+                        <td>{{ item.product_qty }}</td>
+                        <td class="amt">{{ item.total_cost }}</td>
+                        <td>{{ item.created_at }}</td>
+                        <td><a href="{% url "remove_cart" item.id %}" type="button" onclick="return confirm('Are you sure to Remove?')" class="btn btn-danger"><i class="fa fa-trash"></i> Remove</a></td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td ><b>Total Amount:</b></td>
+                        <td></td>
+                        <td id ="net" colspan="2"> </td>
+                        <td><button type="button" class="btn btn-success" style="padding:5px 25px;"><i class="fa fa-check-circle"></i> Buy</button></td>
+                    </tr>
+                </tbody>
+
+            </table>
+    </div>
+</section>
+<script>
+    const nodes = document.querySelectorAll('.amt'); 
+    const arr = Array.from(nodes); 
+    const res = arr.reduce((acc, curr) => {
+        return acc + Number(curr.textContent); 
+    }, 0);
+    document.getElementById('net').textContent = `₹ ${res}`; 
+</script>
+
+{% endblock content %}
+
