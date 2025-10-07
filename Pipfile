@@ -8,6 +8,8 @@ django = "*"
 gunicorn = "*"
 django-tastypie = "*"
 whitenoise = "*"
+cloudinary = "*"
+django-cloudinary-storage = "*"
 
 [dev-packages]
 
