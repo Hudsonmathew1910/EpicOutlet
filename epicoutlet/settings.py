@@ -28,6 +28,10 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "epicoutlet.onrender.com").split(",")
 
+CSRF_TRUSTED_ORIGINS = ['https://epicoutlet.onrender.com']
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 
 # Application definition
 
