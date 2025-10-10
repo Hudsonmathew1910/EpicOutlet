@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,14 +25,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-secret-keep-private')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['epicoutlet.onrender.com']
+ALLOWED_HOSTS = []
+    
 
-
+# Add Render 
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    
 # Application definition
 
 INSTALLED_APPS = [
@@ -80,16 +89,11 @@ WSGI_APPLICATION = 'epicoutlet.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('epicoutlet_db'),
-        'USER': os.environ.get('huddy1910'),
-        'PASSWORD': os.environ.get('42I4DKUW1qKCITZ6O3gJOLuIDhaUjUAd'),
-        'HOST': os.environ.get('dpg-d3ieldripnbc73e4hs50-a'),
-        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -121,14 +125,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Cloudinary settings
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('dqzkseaco'),
-    'API_KEY': os.environ.get('685954752189577'),
-    'API_SECRET': os.environ.get('yt6Brcn_Re8Tvd-ZJCfReLxYMRo')
-}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
@@ -137,34 +133,41 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"] 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# WhiteNoise for static files in production
+if not DEBUG:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# ✅ Security settings (for production)
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_HSTS_SECONDS = 3600
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = False
+# Cloudinary settings
+# cloudinary.config( 
+#     cloud_name = 'dqzkseaco', 
+#     api_key = '821743268526563',
+#     api_secret = 'fEoAPS7aWUHNH2saOJwV3xpwlJU-0' 
+# )
 
-CSRF_TRUSTED_ORIGINS = ['https://epicoutlet.onrender.com']
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dqzkseaco',
+    'API_KEY': '821743268526563',
+    'API_SECRET': 'fEoAPS7aWUHNH2saOJwV3xpwlJU-0',
+    'SECURE': True,
+}
 
-X_FRAME_OPTIONS = 'DENY'
-SECURE_BROWSER_XSS_FILTER = True
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Email Backend
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = os.environ.get('EMAIL_HOST')                
-# EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))     
-# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')      
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-# DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'webmaster@epicoutlet.onrender.com')
+# Security settings (production)
+# RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    if RENDER_EXTERNAL_HOSTNAME:
+        CSRF_TRUSTED_ORIGINS = [f'https://{RENDER_EXTERNAL_HOSTNAME}']
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

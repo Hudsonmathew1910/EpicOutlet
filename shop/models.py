@@ -3,6 +3,7 @@ import datetime
 import os
 from django.contrib.auth.models import User
 import hashlib
+from cloudinary.models import CloudinaryField
 
 def  getFileName(request, filename):
     now_time = datetime.datetime.now().strftime("%Y%m%d%H:%M:%S")
@@ -16,7 +17,7 @@ def get_ava_url(email, size=100):
 
 class Catagory(models.Model):
     name = models.CharField(max_length=150, null=False, blank=False)
-    image = models.ImageField(upload_to=getFileName, null=False, blank=False)
+    image = CloudinaryField('image', folder='Epicoutlte/catagory/')
     description = models.TextField(max_length=500, null=False, blank=False)
     status = models.BooleanField(default=False, help_text="0-show, 1-Hidden")
     Created_at = models.DateTimeField(auto_now_add=True)
@@ -32,7 +33,7 @@ class Product(models.Model):
     catagory=models.ForeignKey(Catagory, on_delete=models.CASCADE)
     name = models.CharField(max_length=150, null=False, blank=False)
     vendor = models.CharField(max_length=150, null=False, blank=False)
-    product_image = models.ImageField(upload_to=getFileName, null=False, blank=False)
+    product_image = CloudinaryField('image', folder='Epicoutlte/products/')
     quantity = models.IntegerField(null=False, blank=False)
     orginal_price = models.IntegerField(null=False, blank=False)
     selling_price = models.IntegerField(null=False, blank=False)
