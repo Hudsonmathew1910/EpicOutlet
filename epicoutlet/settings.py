@@ -141,13 +141,13 @@ if not DEBUG:
 # cloudinary.config( 
 #     cloud_name = 'dqzkseaco', 
 #     api_key = '821743268526563',
-#     api_secret = 'fEoAPS7aWUHNH2saOJwV3xpwlJU-0' 
+#     api_secret = 'fEoAPS7aWUHNH2saOJwV3xpwlJU' 
 # )
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dqzkseaco',
     'API_KEY': '821743268526563',
-    'API_SECRET': 'fEoAPS7aWUHNH2saOJwV3xpwlJU-0',
+    'API_SECRET': 'fEoAPS7aWUHNH2saOJwV3xpwlJU',
     'SECURE': True,
 }
 
