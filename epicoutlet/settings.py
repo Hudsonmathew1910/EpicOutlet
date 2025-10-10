@@ -167,8 +167,6 @@ if not DEBUG:
     if RENDER_EXTERNAL_HOSTNAME:
         CSRF_TRUSTED_ORIGINS = [f'https://{RENDER_EXTERNAL_HOSTNAME}']
 
-# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
