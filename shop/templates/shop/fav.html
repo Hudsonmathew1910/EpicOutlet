@@ -1,7 +1,7 @@
 {% extends "shop/layouts/main.html" %}
 
 {% block title %}
- Saved | EpicOutlet
+ Favourite | EpicOutlet
 {% endblock title  %}
 
 {% block content %}
@@ -28,8 +28,8 @@
                     <tr>
                         {% comment %} <th scope="row">{{ item.product_id }}</th> {% endcomment %}
                         <td><img src="{{ item.product.product_image.url }}" class="img-fluid rounded" style="height: 75px; width: 75px; object-fit: cover;" alt="{{ item.product.name }}"></td>
-                        <td>{{ item.product }}</td>
-                        <td class="amt">₹ {{ item.product.selling_price }}</td>
+                        <td><strong>{{ item.product }}</strong>  <br> Partner - {{ item.product.vendor }} </td>
+                        <td class="amt"><strong>₹ {{ item.product.selling_price }}</strong></td>
                         <td><a href="{% url "remove_fav" item.id %}" type="button" onclick="return confirm('Are you sure to Remove?')" class="btn btn-danger"><i class="fa fa-trash"></i> Remove</a></td>
                     </tr>
                     {% endfor %}
