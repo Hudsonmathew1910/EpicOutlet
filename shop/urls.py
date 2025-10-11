@@ -18,6 +18,7 @@ urlpatterns = [
     path('fav', views.faviteam, name='fav'),
     path('fav_page', views.favpage, name='fav_page'),
     path('remove_fav/<str:fid>', views.remove_fav, name='remove_fav'),
+    path('one-click-import/', views.one_click_import, name='one_click_import'),
     path('api/', include(v1_api.urls)),
 ]
 
