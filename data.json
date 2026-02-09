@@ -1,0 +1,4799 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-09-16T14:10:42.389Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Mobiles",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-09-16T14:15:15.077Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Mobiles",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-09-16T14:15:39.897Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Mobiles",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-09-16T14:16:20.268Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Mobiles",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-09-16T14:16:37.820Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Mobiles",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-09-16T14:18:07.856Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Mobiles",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-09-16T14:18:21.746Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Mobiles",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-09-16T14:18:43.715Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Mobiles",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-09-16T14:31:44.499Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Product object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-09-16T16:46:48.747Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Mobiles",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-09-16T16:47:59.330Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Samsung Galaxy 24",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Product image\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-09-16T16:49:15.094Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "Samsung Galaxy 17",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Product image\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-09-16T16:53:52.004Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-09-16T16:54:53.560Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Samsung Galaxy 24",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-09-16T16:54:58.264Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Samsung Galaxy 24",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-09-16T16:55:08.862Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "Samsung Galaxy 17",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-09-16T16:57:47.299Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "24",
+    "object_repr": "Sofa 23",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-09-16T16:58:10.086Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Samsung Galaxy 24",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-09-16T16:58:35.152Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Samsung Galaxy 24",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-09-16T16:59:43.685Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Samsung Galaxy 24",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-09-16T17:00:27.057Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "Samsung Galaxy 17",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-09-16T17:01:46.654Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Samsung Galaxy 24",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Vendor\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-09-16T17:02:24.269Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "24",
+    "object_repr": "Sofa 23",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Vendor\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-09-16T17:02:37.463Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "Samsung Galaxy 17",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Vendor\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-09-16T17:04:01.237Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Electronic",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-09-16T17:06:33.919Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Fashion",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-09-16T17:09:35.723Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Home",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-09-16T17:12:01.859Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Grocery",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-09-16T17:15:05.219Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "23",
+    "object_repr": "Jeans 22",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Vendor\", \"Product image\", \"Description\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-09-16T17:18:36.715Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "22",
+    "object_repr": "Jeans 21",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\", \"Description\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-09-16T17:19:07.193Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "22",
+    "object_repr": "Jeans 21",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Vendor\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-09-16T17:22:24.393Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "21",
+    "object_repr": "T-Shirt 20",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2025-09-16T17:23:19.524Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "20",
+    "object_repr": "Headphones 19",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Product image\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2025-09-16T17:24:09.839Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "19",
+    "object_repr": "Headphones 18",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2025-09-16T17:25:09.636Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "23",
+    "object_repr": "Jeans 22",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2025-09-16T17:26:30.740Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "Jeans 16",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Product image\", \"Status\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2025-09-16T17:28:43.248Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "Milk Pack 15",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Vendor\", \"Product image\", \"Description\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2025-09-16T17:28:52.165Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "Milk Pack",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2025-09-16T17:29:54.844Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "iPhone 15",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Name\", \"Product image\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2025-09-16T17:31:39.407Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "Jeans 13",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Product image\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2025-09-16T17:33:04.099Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "Jeans 13",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Vendor\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2025-09-16T17:34:37.644Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "Jeans 12",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Vendor\", \"Product image\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2025-09-16T17:36:34.859Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "T-Shirt 11",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Vendor\", \"Product image\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2025-09-16T17:38:24.074Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Curd Pack",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Vendor\", \"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2025-09-16T17:38:54.485Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Curd Pack",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2025-09-16T17:39:58.011Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Jeans 9",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2025-09-16T17:41:13.914Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "Dining Table",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Name\", \"Product image\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2025-09-16T17:42:05.361Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Laptop 7",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Product image\", \"Status\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2025-09-16T17:43:15.176Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Sofa 6",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Vendor\", \"Product image\", \"Description\", \"Status\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2025-09-16T17:44:04.849Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Samsung Galaxy 5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Vendor\", \"Product image\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2025-09-16T17:44:55.972Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Samsung Galaxy 4",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\", \"Status\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2025-09-16T17:45:15.696Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Samsung Galaxy 5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2025-09-16T17:45:25.396Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Sofa 6",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2025-09-16T17:46:41.275Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Jeans 3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Product image\", \"Status\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2025-09-16T17:48:08.769Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "T-Shirt 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Vendor\", \"Product image\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2025-09-16T17:49:33.345Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Laptop 1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\", \"Vendor\", \"Product image\", \"Status\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2025-09-18T14:56:28.900Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "26",
+    "object_repr": "Bed King Size",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2025-09-18T14:57:39.268Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "27",
+    "object_repr": "Wardrobe 4-Door",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2025-09-18T14:58:50.483Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "Coffee Table",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2025-09-18T15:00:07.291Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "29",
+    "object_repr": "Rice Bag 25kg",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2025-09-18T15:01:20.261Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "30",
+    "object_repr": "Wheat Flour 10kg",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2025-09-18T15:02:30.666Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "31",
+    "object_repr": "Sugar 5kg",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2025-09-18T15:03:45.059Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "32",
+    "object_repr": "Sunflower Oil 1L",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2025-09-18T15:07:39.569Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "33",
+    "object_repr": "OnePlus Nord 3",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2025-09-18T15:08:56.020Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "34",
+    "object_repr": "iPhone 14",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2025-09-18T15:09:59.639Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "35",
+    "object_repr": "Gaming Console",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2025-09-18T15:10:51.282Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "36",
+    "object_repr": "Air Conditioner 1.5 Ton",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2025-09-18T15:11:57.393Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "37",
+    "object_repr": "Smart TV 43ö",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2025-09-23T12:07:01.563Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2025-09-23T12:13:17.391Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Electronic",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2025-09-23T12:13:41.188Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Electronic",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2025-09-23T12:13:46.682Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2025-09-23T12:14:04.089Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Home",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2025-09-23T12:14:31.902Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Grocery",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2025-09-23T12:14:45.588Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Fashion",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2025-09-23T12:15:20.975Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Electronic",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2025-09-23T12:15:30.594Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Home",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2025-09-23T12:47:58.648Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2025-09-23T12:48:13.855Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Home",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2025-09-23T12:48:34.776Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Electronic",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2025-09-23T12:48:54.437Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Grocery",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2025-09-23T12:49:07.320Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Fashion",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2025-09-23T14:28:20.711Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Fashion",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2025-09-24T06:21:29.526Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "37",
+    "object_repr": "LG Smart TV 43",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2025-09-24T06:22:08.888Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "35",
+    "object_repr": "Sony PlayStation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2025-09-24T06:22:54.103Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "31",
+    "object_repr": "Tata Sugar 5kg",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2025-09-24T06:23:06.790Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "30",
+    "object_repr": "Aashirvaad Wheat Flour",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2025-09-24T06:23:30.875Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "Coffee Table",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2025-09-24T06:23:48.821Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "29",
+    "object_repr": "India Gate Rice Bag",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2025-09-24T06:24:02.838Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "DinningTable",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2025-09-24T06:24:18.372Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "DiningTable",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2025-09-24T06:25:07.397Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "26",
+    "object_repr": "IKEA Bed (King Size)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2025-09-24T06:25:51.132Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "24",
+    "object_repr": "Evermotion Sofa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Vendor\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2025-09-24T06:26:20.546Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "23",
+    "object_repr": "Kimjeans Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2025-09-24T06:26:31.392Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "22",
+    "object_repr": "Glamood Jeans 21",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2025-09-24T06:26:41.585Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "21",
+    "object_repr": "T-Shirt UrbanLadder",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2025-09-24T06:26:52.470Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "20",
+    "object_repr": "Dell Headphones",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2025-09-24T06:27:03.037Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "22",
+    "object_repr": "Glamood Jeans 21",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2025-09-24T06:27:11.898Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "27",
+    "object_repr": "Wardrobe 4-Door",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2025-09-24T06:27:25.318Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "19",
+    "object_repr": "Apple Headphones",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2025-09-24T06:27:58.913Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "Jeans Local Farm",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2025-09-24T06:28:10.810Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "Hatsun Milk Pack",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2025-09-24T06:28:28.906Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "Levi's Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2025-09-24T06:28:41.260Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "Wrangler Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2025-09-24T06:29:08.178Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "Amorina T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 106,
+  "fields": {
+    "action_time": "2025-09-24T06:29:27.242Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Milma Curd",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 107,
+  "fields": {
+    "action_time": "2025-09-24T06:29:46.509Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Levi's Jeans 9",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 108,
+  "fields": {
+    "action_time": "2025-09-24T06:30:44.606Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "Dining Table IKEA",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 109,
+  "fields": {
+    "action_time": "2025-09-24T06:31:06.977Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "DiningTable UrbanLadder",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 110,
+  "fields": {
+    "action_time": "2025-09-24T06:31:26.837Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Samsung Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 111,
+  "fields": {
+    "action_time": "2025-09-24T06:31:37.013Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "VanAcc Sofa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 112,
+  "fields": {
+    "action_time": "2025-09-24T06:31:49.056Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "H&M Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 113,
+  "fields": {
+    "action_time": "2025-09-24T06:32:01.098Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Levi's T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 114,
+  "fields": {
+    "action_time": "2025-09-24T06:32:09.412Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "HP Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 115,
+  "fields": {
+    "action_time": "2025-09-24T06:32:46.132Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Levi's Jeans 9",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 116,
+  "fields": {
+    "action_time": "2025-09-24T12:29:14.312Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "36",
+    "object_repr": "Air Conditioner",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 117,
+  "fields": {
+    "action_time": "2025-09-24T12:29:52.451Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "DiningTable UL",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 118,
+  "fields": {
+    "action_time": "2025-09-24T15:31:54.300Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "37",
+    "object_repr": "LG Smart TV 43",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 119,
+  "fields": {
+    "action_time": "2025-09-24T15:32:34.987Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "36",
+    "object_repr": "Air Conditioner",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 120,
+  "fields": {
+    "action_time": "2025-09-24T15:33:52.452Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "19",
+    "object_repr": "Apple Headphones",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 121,
+  "fields": {
+    "action_time": "2025-09-24T15:34:16.138Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "35",
+    "object_repr": "Sony PlayStation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 122,
+  "fields": {
+    "action_time": "2025-09-24T15:34:23.616Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "34",
+    "object_repr": "iPhone 14",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 123,
+  "fields": {
+    "action_time": "2025-09-24T15:34:35.287Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "33",
+    "object_repr": "OnePlus Nord 3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 124,
+  "fields": {
+    "action_time": "2025-09-24T15:57:58.937Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "32",
+    "object_repr": "Sunflower Oil 1L",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 125,
+  "fields": {
+    "action_time": "2025-09-24T15:58:07.031Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "31",
+    "object_repr": "Tata Sugar 5kg",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 126,
+  "fields": {
+    "action_time": "2025-09-24T15:58:14.093Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "30",
+    "object_repr": "Aashirvaad Wheat Flour",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 127,
+  "fields": {
+    "action_time": "2025-09-24T15:58:21.224Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "29",
+    "object_repr": "India Gate Rice Bag",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 128,
+  "fields": {
+    "action_time": "2025-09-24T15:58:28.506Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "DiningTable UL",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 129,
+  "fields": {
+    "action_time": "2025-09-24T15:58:34.697Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "27",
+    "object_repr": "Wardrobe 4-Door",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 130,
+  "fields": {
+    "action_time": "2025-09-24T15:58:43.070Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "26",
+    "object_repr": "IKEA Bed (King Size)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 131,
+  "fields": {
+    "action_time": "2025-09-26T07:41:59.738Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Samsung Galaxy 24",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 132,
+  "fields": {
+    "action_time": "2025-09-26T07:42:08.178Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "24",
+    "object_repr": "Evermotion Sofa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 133,
+  "fields": {
+    "action_time": "2025-09-26T07:42:17.675Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "23",
+    "object_repr": "Kimjeans Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 134,
+  "fields": {
+    "action_time": "2025-09-26T07:42:26.259Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "22",
+    "object_repr": "Glamood Jeans 21",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 135,
+  "fields": {
+    "action_time": "2025-09-26T07:42:35.799Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "21",
+    "object_repr": "T-Shirt UrbanLadder",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 136,
+  "fields": {
+    "action_time": "2025-09-26T07:42:47.531Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "20",
+    "object_repr": "Dell Headphones",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 137,
+  "fields": {
+    "action_time": "2025-09-26T07:42:55.951Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "Samsung Galaxy 17",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 138,
+  "fields": {
+    "action_time": "2025-09-26T08:09:14.577Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "Jeans Local Farm",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 139,
+  "fields": {
+    "action_time": "2025-09-26T08:10:14.289Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "Hatsun Milk Pack",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 140,
+  "fields": {
+    "action_time": "2025-09-26T08:10:23.134Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "iPhone 15",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 141,
+  "fields": {
+    "action_time": "2025-09-26T08:10:30.913Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "Levi's Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 142,
+  "fields": {
+    "action_time": "2025-09-26T08:10:39.427Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "Wrangler Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 143,
+  "fields": {
+    "action_time": "2025-09-26T08:10:47.484Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "Amorina T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 144,
+  "fields": {
+    "action_time": "2025-09-26T08:10:54.863Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Milma Curd",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 145,
+  "fields": {
+    "action_time": "2025-09-26T08:11:02.084Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Levi's Jeans 9",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 146,
+  "fields": {
+    "action_time": "2025-09-26T08:11:09.002Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "Dining Table IKEA",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 147,
+  "fields": {
+    "action_time": "2025-09-26T08:11:18.843Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Samsung Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 148,
+  "fields": {
+    "action_time": "2025-09-26T08:11:27.718Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "VanAcc Sofa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 149,
+  "fields": {
+    "action_time": "2025-09-26T08:11:35.238Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Samsung Galaxy 5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 150,
+  "fields": {
+    "action_time": "2025-09-26T08:11:41.408Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Samsung Galaxy 4",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 151,
+  "fields": {
+    "action_time": "2025-09-26T08:11:48.773Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "H&M Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 152,
+  "fields": {
+    "action_time": "2025-09-26T08:11:55.882Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Levi's T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 153,
+  "fields": {
+    "action_time": "2025-09-26T08:12:01.925Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "HP Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 154,
+  "fields": {
+    "action_time": "2025-09-26T12:24:34.761Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "37",
+    "object_repr": "LG Smart TV 43",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Quantity\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 155,
+  "fields": {
+    "action_time": "2025-09-26T13:11:46.984Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 156,
+  "fields": {
+    "action_time": "2025-09-26T13:12:22.916Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Home",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 157,
+  "fields": {
+    "action_time": "2025-09-26T13:13:01.069Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 158,
+  "fields": {
+    "action_time": "2025-09-26T13:15:15.198Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "iPhone 15",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 159,
+  "fields": {
+    "action_time": "2025-09-26T13:38:18.329Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Levi's T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 160,
+  "fields": {
+    "action_time": "2025-09-26T13:40:09.903Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "29",
+    "object_repr": "India Gate Rice Bag",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orginal price\", \"Selling price\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 161,
+  "fields": {
+    "action_time": "2025-09-26T13:40:41.010Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "Hatsun Milk Pack",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orginal price\", \"Selling price\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 162,
+  "fields": {
+    "action_time": "2025-09-26T13:40:59.872Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Milma Curd",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orginal price\", \"Selling price\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 163,
+  "fields": {
+    "action_time": "2025-09-26T14:04:24.272Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "Amorina T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 164,
+  "fields": {
+    "action_time": "2025-09-26T14:04:36.454Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "20",
+    "object_repr": "Dell Headphones",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 165,
+  "fields": {
+    "action_time": "2025-09-26T14:04:48.800Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "Levi's Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 166,
+  "fields": {
+    "action_time": "2025-09-29T15:25:55.297Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "ravi5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 167,
+  "fields": {
+    "action_time": "2025-10-03T09:16:46.162Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "ravi",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 168,
+  "fields": {
+    "action_time": "2025-10-03T09:17:54.818Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "ravi5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 169,
+  "fields": {
+    "action_time": "2025-10-03T14:30:33.842Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "opjp",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 170,
+  "fields": {
+    "action_time": "2025-10-03T14:30:38.575Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "7",
+    "object_repr": "rr",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 171,
+  "fields": {
+    "action_time": "2025-10-03T14:30:43.687Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "6",
+    "object_repr": "wwgff",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 172,
+  "fields": {
+    "action_time": "2025-10-03T14:39:32.808Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "8",
+    "object_repr": "ravi",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 173,
+  "fields": {
+    "action_time": "2025-10-03T20:14:28.575Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "36",
+    "object_repr": "Air Conditioner",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Quantity\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 174,
+  "fields": {
+    "action_time": "2025-10-04T08:43:35.570Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Samsung Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Quantity\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 175,
+  "fields": {
+    "action_time": "2025-10-04T08:44:17.018Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Samsung Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Quantity\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 176,
+  "fields": {
+    "action_time": "2025-10-07T07:55:58.046Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 177,
+  "fields": {
+    "action_time": "2025-10-07T08:37:57.464Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "10",
+    "object_repr": "Hudson",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 178,
+  "fields": {
+    "action_time": "2025-10-07T08:38:02.323Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "9",
+    "object_repr": "ravi",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 179,
+  "fields": {
+    "action_time": "2025-10-07T08:39:33.503Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "9",
+    "object_repr": "ravi",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 180,
+  "fields": {
+    "action_time": "2025-10-09T15:51:04.490Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "31",
+    "object_repr": "Tata Sugar 5kg",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 181,
+  "fields": {
+    "action_time": "2025-10-09T17:27:31.153Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 182,
+  "fields": {
+    "action_time": "2025-10-09T17:39:43.746Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 183,
+  "fields": {
+    "action_time": "2025-10-09T17:42:40.031Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 184,
+  "fields": {
+    "action_time": "2025-10-09T17:46:15.248Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "37",
+    "object_repr": "LG Smart TV 43",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 185,
+  "fields": {
+    "action_time": "2025-10-09T18:02:33.852Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 186,
+  "fields": {
+    "action_time": "2025-10-09T18:10:02.308Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 187,
+  "fields": {
+    "action_time": "2025-10-09T18:16:54.260Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "37",
+    "object_repr": "LG Smart TV 43",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 188,
+  "fields": {
+    "action_time": "2025-10-09T18:17:02.170Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "36",
+    "object_repr": "Air Conditioner",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 189,
+  "fields": {
+    "action_time": "2025-10-09T18:17:10.726Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "35",
+    "object_repr": "Sony PlayStation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 190,
+  "fields": {
+    "action_time": "2025-10-09T18:18:31.217Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "34",
+    "object_repr": "iPhone 14",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 191,
+  "fields": {
+    "action_time": "2025-10-09T18:18:45.326Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "33",
+    "object_repr": "OnePlus Nord 3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 192,
+  "fields": {
+    "action_time": "2025-10-09T18:19:05.823Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "32",
+    "object_repr": "Sunflower Oil 1L",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 193,
+  "fields": {
+    "action_time": "2025-10-09T18:19:25.514Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "31",
+    "object_repr": "Tata Sugar 5kg",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 194,
+  "fields": {
+    "action_time": "2025-10-09T18:19:36.743Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "30",
+    "object_repr": "Aashirvaad Wheat Flour",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 195,
+  "fields": {
+    "action_time": "2025-10-09T18:20:47.862Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "29",
+    "object_repr": "India Gate Rice Bag",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 196,
+  "fields": {
+    "action_time": "2025-10-09T18:21:00.757Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "DiningTable UL",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 197,
+  "fields": {
+    "action_time": "2025-10-09T18:21:12.991Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "27",
+    "object_repr": "Wardrobe 4-Door",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 198,
+  "fields": {
+    "action_time": "2025-10-09T18:21:23.958Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "26",
+    "object_repr": "IKEA Bed (King Size)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 199,
+  "fields": {
+    "action_time": "2025-10-09T18:22:31.066Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Samsung Galaxy 24",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 200,
+  "fields": {
+    "action_time": "2025-10-09T18:23:32.453Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "24",
+    "object_repr": "Evermotion Sofa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 201,
+  "fields": {
+    "action_time": "2025-10-09T18:23:50.044Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "23",
+    "object_repr": "Kimjeans Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 202,
+  "fields": {
+    "action_time": "2025-10-09T18:24:36.802Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "22",
+    "object_repr": "Glamood Jeans 21",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 203,
+  "fields": {
+    "action_time": "2025-10-09T18:27:00.624Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "21",
+    "object_repr": "T-Shirt UrbanLadder",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 204,
+  "fields": {
+    "action_time": "2025-10-09T18:27:22.729Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "20",
+    "object_repr": "Dell Headphones",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 205,
+  "fields": {
+    "action_time": "2025-10-09T18:27:36.107Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "19",
+    "object_repr": "Apple Headphones",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 206,
+  "fields": {
+    "action_time": "2025-10-09T18:27:52.611Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "Samsung Galaxy 17",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 207,
+  "fields": {
+    "action_time": "2025-10-09T18:28:10.579Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "Jeans Local Farm",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 208,
+  "fields": {
+    "action_time": "2025-10-09T18:28:33.349Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "Hatsun Milk Pack",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 209,
+  "fields": {
+    "action_time": "2025-10-09T18:28:53.399Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "iPhone 15",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 210,
+  "fields": {
+    "action_time": "2025-10-09T18:29:55.201Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "Levi's Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 211,
+  "fields": {
+    "action_time": "2025-10-09T18:30:24.472Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "Wrangler Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 212,
+  "fields": {
+    "action_time": "2025-10-09T18:31:39.526Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "Amorina T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 213,
+  "fields": {
+    "action_time": "2025-10-09T18:31:53.133Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Milma Curd",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 214,
+  "fields": {
+    "action_time": "2025-10-09T18:32:18.366Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Milma Curd",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 215,
+  "fields": {
+    "action_time": "2025-10-09T18:33:45.501Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Levi's Jeans 9",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 216,
+  "fields": {
+    "action_time": "2025-10-09T18:34:03.705Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "Dining Table IKEA",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 217,
+  "fields": {
+    "action_time": "2025-10-09T18:35:07.447Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Samsung Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 218,
+  "fields": {
+    "action_time": "2025-10-09T18:35:25.107Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "VanAcc Sofa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 219,
+  "fields": {
+    "action_time": "2025-10-09T18:36:03.432Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Samsung Galaxy 5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 220,
+  "fields": {
+    "action_time": "2025-10-09T18:36:17.099Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Samsung Galaxy 4",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 221,
+  "fields": {
+    "action_time": "2025-10-09T18:36:38.904Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "H&M Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 222,
+  "fields": {
+    "action_time": "2025-10-09T18:36:48.081Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Levi's T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 223,
+  "fields": {
+    "action_time": "2025-10-09T18:36:59.268Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "HP Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 224,
+  "fields": {
+    "action_time": "2025-10-09T18:37:35.696Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 225,
+  "fields": {
+    "action_time": "2025-10-09T18:37:49.881Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Home",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 226,
+  "fields": {
+    "action_time": "2025-10-09T18:38:00.369Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Electronic",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 227,
+  "fields": {
+    "action_time": "2025-10-09T18:40:09.564Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Grocery",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 228,
+  "fields": {
+    "action_time": "2025-10-09T18:40:42.632Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Fashion",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 229,
+  "fields": {
+    "action_time": "2025-10-09T18:41:48.056Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "Jeans Local Farm",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 230,
+  "fields": {
+    "action_time": "2025-10-10T06:41:56.540Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 231,
+  "fields": {
+    "action_time": "2025-10-10T06:47:51.585Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 232,
+  "fields": {
+    "action_time": "2025-10-10T06:53:21.608Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 233,
+  "fields": {
+    "action_time": "2025-10-10T07:28:27.252Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 234,
+  "fields": {
+    "action_time": "2025-10-10T07:33:06.429Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 235,
+  "fields": {
+    "action_time": "2025-10-10T07:50:05.904Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 236,
+  "fields": {
+    "action_time": "2025-10-10T07:50:23.501Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 237,
+  "fields": {
+    "action_time": "2025-10-10T07:51:11.976Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "37",
+    "object_repr": "LG Smart TV 43",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 238,
+  "fields": {
+    "action_time": "2025-10-10T07:52:05.806Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 239,
+  "fields": {
+    "action_time": "2025-10-10T07:53:48.703Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 240,
+  "fields": {
+    "action_time": "2025-10-10T07:53:58.581Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 241,
+  "fields": {
+    "action_time": "2025-10-10T07:56:46.112Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Xbox Series-X-Gaming-Console",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 242,
+  "fields": {
+    "action_time": "2025-10-10T07:56:59.734Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 243,
+  "fields": {
+    "action_time": "2025-10-10T08:18:34.645Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Home",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 244,
+  "fields": {
+    "action_time": "2025-10-10T08:19:12.281Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Electronic",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 245,
+  "fields": {
+    "action_time": "2025-10-10T08:19:26.918Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Grocery",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 246,
+  "fields": {
+    "action_time": "2025-10-10T08:19:37.931Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Fashion",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 247,
+  "fields": {
+    "action_time": "2025-10-10T08:21:03.150Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "37",
+    "object_repr": "LG Smart TV 43",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 248,
+  "fields": {
+    "action_time": "2025-10-10T08:21:14.110Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "36",
+    "object_repr": "Air Conditioner",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 249,
+  "fields": {
+    "action_time": "2025-10-10T08:22:06.856Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "35",
+    "object_repr": "Sony PlayStation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 250,
+  "fields": {
+    "action_time": "2025-10-10T08:22:21.631Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "34",
+    "object_repr": "iPhone 14",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 251,
+  "fields": {
+    "action_time": "2025-10-10T08:22:34.158Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "33",
+    "object_repr": "OnePlus Nord 3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 252,
+  "fields": {
+    "action_time": "2025-10-10T08:22:46.536Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "32",
+    "object_repr": "Sunflower Oil 1L",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 253,
+  "fields": {
+    "action_time": "2025-10-10T08:23:00.457Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "31",
+    "object_repr": "Tata Sugar 5kg",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 254,
+  "fields": {
+    "action_time": "2025-10-10T08:23:10.802Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "30",
+    "object_repr": "Aashirvaad Wheat Flour",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 255,
+  "fields": {
+    "action_time": "2025-10-10T08:23:23.135Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "29",
+    "object_repr": "India Gate Rice Bag",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 256,
+  "fields": {
+    "action_time": "2025-10-10T08:23:33.116Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "DiningTable UL",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 257,
+  "fields": {
+    "action_time": "2025-10-10T08:23:44.202Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "27",
+    "object_repr": "Wardrobe 4-Door",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 258,
+  "fields": {
+    "action_time": "2025-10-10T08:23:57.220Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "26",
+    "object_repr": "IKEA Bed (King Size)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 259,
+  "fields": {
+    "action_time": "2025-10-10T08:38:55.570Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Samsung Galaxy 24",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 260,
+  "fields": {
+    "action_time": "2025-10-10T08:39:31.624Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "24",
+    "object_repr": "Evermotion Sofa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 261,
+  "fields": {
+    "action_time": "2025-10-10T08:39:49.025Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "23",
+    "object_repr": "Kimjeans Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 262,
+  "fields": {
+    "action_time": "2025-10-10T08:40:22.044Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "22",
+    "object_repr": "Glamood Jeans 21",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 263,
+  "fields": {
+    "action_time": "2025-10-10T08:40:32.640Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "21",
+    "object_repr": "T-Shirt UrbanLadder",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 264,
+  "fields": {
+    "action_time": "2025-10-10T08:40:43.615Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "20",
+    "object_repr": "Dell Headphones",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 265,
+  "fields": {
+    "action_time": "2025-10-10T08:40:56.451Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "19",
+    "object_repr": "Apple Headphones",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 266,
+  "fields": {
+    "action_time": "2025-10-10T08:41:24.609Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "Samsung Galaxy 17",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 267,
+  "fields": {
+    "action_time": "2025-10-10T08:41:37.955Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "Jeans Local Farm",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 268,
+  "fields": {
+    "action_time": "2025-10-10T08:41:50.933Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "Hatsun Milk Pack",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 269,
+  "fields": {
+    "action_time": "2025-10-10T08:42:16.494Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "iPhone 15",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 270,
+  "fields": {
+    "action_time": "2025-10-10T08:42:30.514Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "Levi's Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 271,
+  "fields": {
+    "action_time": "2025-10-10T08:42:53.373Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "Wrangler Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 272,
+  "fields": {
+    "action_time": "2025-10-10T08:43:23.208Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "Amorina T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 273,
+  "fields": {
+    "action_time": "2025-10-10T08:43:52.987Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Milma Curd",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 274,
+  "fields": {
+    "action_time": "2025-10-10T08:44:04.177Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Levi's Jeans 9",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 275,
+  "fields": {
+    "action_time": "2025-10-10T08:44:23.696Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "Dining Table IKEA",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 276,
+  "fields": {
+    "action_time": "2025-10-10T08:44:53.526Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Samsung Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 277,
+  "fields": {
+    "action_time": "2025-10-10T08:45:07.705Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "VanAcc Sofa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 278,
+  "fields": {
+    "action_time": "2025-10-10T08:45:21.889Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Samsung Galaxy 5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 279,
+  "fields": {
+    "action_time": "2025-10-10T08:45:33.392Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Samsung Galaxy 4",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 280,
+  "fields": {
+    "action_time": "2025-10-10T08:45:50.335Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "H&M Jeans",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 281,
+  "fields": {
+    "action_time": "2025-10-10T08:46:32.274Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Levi's T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 282,
+  "fields": {
+    "action_time": "2025-10-10T08:46:47.336Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "HP Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 283,
+  "fields": {
+    "action_time": "2025-10-10T09:15:05.885Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "39",
+    "object_repr": "RX T-shirt",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 284,
+  "fields": {
+    "action_time": "2025-10-10T09:18:17.893Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "40",
+    "object_repr": "RX Formel's",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 285,
+  "fields": {
+    "action_time": "2025-10-10T09:26:15.293Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "40",
+    "object_repr": "RX Formal's",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 286,
+  "fields": {
+    "action_time": "2025-10-10T09:32:23.443Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "41",
+    "object_repr": "Fridge",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 287,
+  "fields": {
+    "action_time": "2025-10-10T09:34:50.518Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "42",
+    "object_repr": "Vivo Y300",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 288,
+  "fields": {
+    "action_time": "2025-10-10T09:36:44.609Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "43",
+    "object_repr": "BELLEZE TV stand",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 289,
+  "fields": {
+    "action_time": "2025-10-10T09:39:07.111Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "44",
+    "object_repr": "Computer table",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 290,
+  "fields": {
+    "action_time": "2025-10-10T09:41:15.864Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "30",
+    "object_repr": "Aashirvaad Wheat Flour",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 291,
+  "fields": {
+    "action_time": "2025-10-10T09:41:24.993Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "29",
+    "object_repr": "India Gate Rice Bag",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 292,
+  "fields": {
+    "action_time": "2025-10-10T09:41:45.029Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "32",
+    "object_repr": "Sunflower Oil 1L",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 293,
+  "fields": {
+    "action_time": "2025-10-10T09:42:00.006Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "24",
+    "object_repr": "Evermotion Sofa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 294,
+  "fields": {
+    "action_time": "2025-10-11T08:09:46.696Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "ravi",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 295,
+  "fields": {
+    "action_time": "2025-10-11T09:08:08.774Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Mobile",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$UNF4DgxcVA9obETlOYspm5$LZdtaoO7GzNxudrNyYQ1c+yJUOp0XzbnO3Ac7uSNzPU=",
+    "last_login": "2026-02-08T19:03:55.393Z",
+    "is_superuser": true,
+    "username": "huddy",
+    "first_name": "",
+    "last_name": "",
+    "email": "hudsonmathew2004@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-09-16T13:53:53.584Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$KTsUadkO0D9eBujU3LPU8R$nxo4f8jh6B8b1vWWI+1NBTtRCHtLi2EPUYv5YHX++Dw=",
+    "last_login": "2025-10-11T08:10:49.320Z",
+    "is_superuser": false,
+    "username": "ravi",
+    "first_name": "",
+    "last_name": "",
+    "email": "raviabc861@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-10-11T08:10:14.998Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$t1SOok3k4kiYbsZTllrEHU$9zOwB15/OS85ntwJM/k443wTxksrtMEZDPtozfaj7vE=",
+    "last_login": "2025-10-11T08:12:22.630Z",
+    "is_superuser": false,
+    "username": "Buddy",
+    "first_name": "",
+    "last_name": "",
+    "email": "Susilajames1971@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-10-11T08:12:14.063Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ixqpUm7S8SuBMcldL6IEdi$Rlinvx6H+eRq7umHQf+Ye0exlW3yNFlM/6HKxtwzXXA=",
+    "last_login": "2025-10-11T08:14:25.188Z",
+    "is_superuser": false,
+    "username": "hudson",
+    "first_name": "",
+    "last_name": "",
+    "email": "huddy1910@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-10-11T08:14:17.551Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7qg0hzyxooh1p0q3161x3mu53y3jnlkb",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RAWsIBH776B7MIiVUOT0p6MfzckPeh1ZjJvEXHfatw7r3HO4iJAnH4ZYXpyGyI_sN0XmZa2rTPJkcjDdnlbMr-uR_s3qNjr2HrW5MBrQ1xAZwPnZAhD4KxSMdpZlQh8Im9ROWV5Ah84TMFYMMU68fkC2uk3Pw:1uyW9U:Gk3w_7vLyQrKsZAHtON2ZXIC4VCQyGp-XhdGZjfBcgc",
+    "expire_date": "2025-09-30T13:55:24.170Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "azspascz7emjujpn1u8azp2mui6fab8a",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hA6MAIu3XsGMgxUqgaS0q6MdzckXej2v_f-WwTatxL2ntewJHERkzj9bpH4mesA6UH13iS3uq1LlEORB-3y1lJ-XQ_376BQL6Nm58njbBDQaWViBjyzUoZBOwtsbQKe0HhCFSmqZBA1OHKEOWmaxecLxbQ3Zg:1vpA4Z:dclvKfJVkrKG6o4pvSO_cMmfrvZX360TImy1wu1xTBQ",
+    "expire_date": "2026-02-22T19:03:55.402Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "d5by81k4jpnk36idr6lps5q454te8zx7",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hA6MAIu3XsGMgxUqgaS0q6MdzckXej2v_f-WwTatxL2ntewJHERkzj9bpH4mesA6UH13iS3uq1LlEORB-3y1lJ-XQ_376BQL6Nm58njbBDQaWViBjyzUoZBOwtsbQKe0HhCFSmqZBA1OHKEOWmaxecLxbQ3Zg:1v7V2O:6dnwqWHIzBJoteXbphpH7qN3K9jfEGuM90UQ2wjO4Po",
+    "expire_date": "2025-10-25T08:33:12.334Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "f4h3bcjy7o3zqs5rqpz2dneu54nfjs53",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCmhTLj0r1naAYGbNVAUtqV8e7apAvd_vfef6mRt3Uat5aWcRZ1VqROv1vg-EhlB3Lncqs61rIuc9C7og_a9LVKel4O9-9g4jZ9a4sEkXvfgUP0DL2LJuRgYTBAGV2GTD4NYl2MJnfiqRcgNJ2EgSyyen8AxCM3Kw:1v5L3b:tJtWSXEhkij40-KX0XzCbxUqFgd33IKL-KTCJj7e1Po",
+    "expire_date": "2025-10-19T09:29:31.480Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zqx712i07nm5pmw989w4z28tykzntqco",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hA6MAIu3XsGMgxUqgaS0q6MdzckXej2v_f-WwTatxL2ntewJHERkzj9bpH4mesA6UH13iS3uq1LlEORB-3y1lJ-XQ_376BQL6Nm58njbBDQaWViBjyzUoZBOwtsbQKe0HhCFSmqZBA1OHKEOWmaxecLxbQ3Zg:1v6suf:L9XGjZUovCwXhVZwmOSoqPUH_eliZhiP9ocK1SCFf-0",
+    "expire_date": "2025-10-23T15:50:41.501Z"
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 5,
+  "fields": {
+    "name": "Mobile",
+    "image": "image/upload/v1760083018/Epicoutlte/catagory/cqujsbmw5o6hie4xt2gi.webp",
+    "description": "Stay connected with the latest smartphones, feature-devices, and unbeatable deals - all in one place",
+    "status": false,
+    "Created_at": "2025-09-16T15:28:31.181Z",
+    "order": 1
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 6,
+  "fields": {
+    "name": "Grocery",
+    "image": "image/upload/v1760084366/Epicoutlte/catagory/gunchyk2zfjqessn70fh.webp",
+    "description": "Fresh, fast, and affordable ù get daily essentials and pantry favorites delivered straight to you",
+    "status": false,
+    "Created_at": "2025-09-16T16:16:06.430Z",
+    "order": 4
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 7,
+  "fields": {
+    "name": "Home",
+    "image": "image/upload/v1760084313/Epicoutlte/catagory/nyvntdvg65bvfbrrm9mm.jpg",
+    "description": "Everything you need to make your house a home ù from dΘcor to essentials, delivered to your doorstep",
+    "status": false,
+    "Created_at": "2025-09-16T16:17:17.721Z",
+    "order": 2
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 8,
+  "fields": {
+    "name": "Fashion",
+    "image": "image/upload/v1760084375/Epicoutlte/catagory/aoae5axn1fifpvheqjvn.webp",
+    "description": "Discover trendy styles, modern, timeless classics, and everything you need to look your best every day",
+    "status": false,
+    "Created_at": "2025-09-16T16:17:17.741Z",
+    "order": 5
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 9,
+  "fields": {
+    "name": "Electronic",
+    "image": "image/upload/v1760084351/Epicoutlte/catagory/vym9fkh7it8xqtst9t7b.jpg",
+    "description": "Shop top-quality gadgets, appliances, and accessories to make life smarter, easier, and more fun",
+    "status": false,
+    "Created_at": "2025-09-16T16:17:17.757Z",
+    "order": 3
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 2,
+  "fields": {
+    "catagory": 9,
+    "name": "HP Laptop",
+    "vendor": "HP",
+    "product_image": "image/upload/v1760086006/Epicoutlte/products/ugsxlwd1ivxoz46asxj2.avif",
+    "quantity": 169,
+    "orginal_price": 45915,
+    "selling_price": 38367,
+    "description": "Budget-friendly",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.713Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 3,
+  "fields": {
+    "catagory": 8,
+    "name": "Levi's T-Shirt",
+    "vendor": "Levi's",
+    "product_image": "image/upload/v1760085991/Epicoutlte/products/p6cd8txcrbu9koqitdcq.webp",
+    "quantity": 98,
+    "orginal_price": 33141,
+    "selling_price": 27233,
+    "description": "Latest model",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-16T16:17:17.728Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 4,
+  "fields": {
+    "catagory": 8,
+    "name": "H&M Jeans",
+    "vendor": "H&M",
+    "product_image": "image/upload/v1760085948/Epicoutlte/products/onhyhif5io3arhud62cw.jpg",
+    "quantity": 132,
+    "orginal_price": 40017,
+    "selling_price": 37066,
+    "description": "Top rated",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.732Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 5,
+  "fields": {
+    "catagory": 5,
+    "name": "Samsung Galaxy 4",
+    "vendor": "Samsung",
+    "product_image": "image/upload/v1760085932/Epicoutlte/products/cfmquznnwcgbvvr5luit.webp",
+    "quantity": 1,
+    "orginal_price": 4280,
+    "selling_price": 3609,
+    "description": "Premium product",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.737Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 6,
+  "fields": {
+    "catagory": 5,
+    "name": "Samsung Galaxy 5",
+    "vendor": "Samsung",
+    "product_image": "image/upload/v1760085921/Epicoutlte/products/gfxhpqu11zojtpulwjpp.jpg",
+    "quantity": 23,
+    "orginal_price": 74338,
+    "selling_price": 67383,
+    "description": "Latest model",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.744Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 7,
+  "fields": {
+    "catagory": 7,
+    "name": "VanAcc Sofa",
+    "vendor": "VanAcc",
+    "product_image": "image/upload/v1760085907/Epicoutlte/products/zmvxcn41p9kcv3csj0ym.jpg",
+    "quantity": 72,
+    "orginal_price": 37788,
+    "selling_price": 30733,
+    "description": "VanAcc 124 Inches Modular Sectional Sofa, 6 Seats U Shaped sofa with Chaise, Oversized Sectional Sofa with Storage, Ottomans- Chenille Gray",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.748Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 8,
+  "fields": {
+    "catagory": 9,
+    "name": "Samsung Laptop",
+    "vendor": "Samsung",
+    "product_image": "image/upload/v1760085892/Epicoutlte/products/xqh7n4muodjelgfjnknt.jpg",
+    "quantity": 0,
+    "orginal_price": 70728,
+    "selling_price": 64989,
+    "description": "Durable",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.753Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 9,
+  "fields": {
+    "catagory": 7,
+    "name": "Dining Table IKEA",
+    "vendor": "IKEA",
+    "product_image": "image/upload/v1760085862/Epicoutlte/products/j1dx1rmolgcmxdd7ykej.webp",
+    "quantity": 11,
+    "orginal_price": 58002,
+    "selling_price": 50249,
+    "description": "Durable",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.760Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 10,
+  "fields": {
+    "catagory": 8,
+    "name": "Levi's Jeans 9",
+    "vendor": "Levis",
+    "product_image": "image/upload/v1760085843/Epicoutlte/products/kk5txkemqcyvr7vyeaqi.jpg",
+    "quantity": 43,
+    "orginal_price": 66466,
+    "selling_price": 54244,
+    "description": "Premium product",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-16T16:17:17.764Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 11,
+  "fields": {
+    "catagory": 6,
+    "name": "Milma Curd",
+    "vendor": "Milma",
+    "product_image": "image/upload/v1760085832/Epicoutlte/products/gksdqtstru2r6iwnqgpu.jpg",
+    "quantity": 96,
+    "orginal_price": 32,
+    "selling_price": 24,
+    "description": "Durable",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-16T16:17:17.768Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 12,
+  "fields": {
+    "catagory": 8,
+    "name": "Amorina T-Shirt",
+    "vendor": "Amorina",
+    "product_image": "image/upload/v1760085802/Epicoutlte/products/usjr9cvjijmjfuadhkid.jpg",
+    "quantity": 152,
+    "orginal_price": 31748,
+    "selling_price": 25566,
+    "description": "Premium product",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.772Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 13,
+  "fields": {
+    "catagory": 8,
+    "name": "Wrangler Jeans",
+    "vendor": "Wrangler",
+    "product_image": "image/upload/v1760085768/Epicoutlte/products/sogknsq6hrwjsjqvvtwm.jpg",
+    "quantity": 96,
+    "orginal_price": 33746,
+    "selling_price": 29390,
+    "description": "High quality",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-16T16:17:17.775Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 14,
+  "fields": {
+    "catagory": 8,
+    "name": "Levi's Jeans",
+    "vendor": "Levi's",
+    "product_image": "image/upload/v1760085749/Epicoutlte/products/tckkil5hpakprsbjbefp.webp",
+    "quantity": 179,
+    "orginal_price": 41131,
+    "selling_price": 35810,
+    "description": "Budget-friendly",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.779Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 15,
+  "fields": {
+    "catagory": 5,
+    "name": "iPhone 15",
+    "vendor": "Samsung",
+    "product_image": "image/upload/v1760085735/Epicoutlte/products/uolhku7mxl59tu2nw9ea.webp",
+    "quantity": 17,
+    "orginal_price": 36098,
+    "selling_price": 29136,
+    "description": "Durable",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-16T16:17:17.783Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 16,
+  "fields": {
+    "catagory": 6,
+    "name": "Hatsun Milk Pack",
+    "vendor": "Hatsun",
+    "product_image": "image/upload/v1760085710/Epicoutlte/products/g0besaq1krhyffvzuybb.jpg",
+    "quantity": 22,
+    "orginal_price": 30,
+    "selling_price": 20,
+    "description": "people's choice",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-16T16:17:17.787Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 17,
+  "fields": {
+    "catagory": 8,
+    "name": "Jeans Local Farm",
+    "vendor": "Local Farm",
+    "product_image": "image/upload/v1760085697/Epicoutlte/products/zvtxd70zczd6owodywcf.jpg",
+    "quantity": 13,
+    "orginal_price": 48293,
+    "selling_price": 45703,
+    "description": "Top rated",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.791Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 18,
+  "fields": {
+    "catagory": 5,
+    "name": "Samsung Galaxy 17",
+    "vendor": "Samsung",
+    "product_image": "image/upload/v1760085683/Epicoutlte/products/d6u38zjakp2o8oe2btyj.webp",
+    "quantity": 148,
+    "orginal_price": 18435,
+    "selling_price": 17153,
+    "description": "Durable",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-16T16:17:17.795Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 19,
+  "fields": {
+    "catagory": 9,
+    "name": "Apple Headphones",
+    "vendor": "Apple",
+    "product_image": "image/upload/v1760085655/Epicoutlte/products/y17u6o07qrva3v9iyb7w.jpg",
+    "quantity": 60,
+    "orginal_price": 69784,
+    "selling_price": 57902,
+    "description": "Popular choice",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-16T16:17:17.799Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 20,
+  "fields": {
+    "catagory": 9,
+    "name": "Dell Headphones",
+    "vendor": "Dell",
+    "product_image": "image/upload/v1760085642/Epicoutlte/products/qfkdkpv1z9pgi0ulrjjg.jpg",
+    "quantity": 86,
+    "orginal_price": 50496,
+    "selling_price": 43569,
+    "description": "Budget-friendly",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.802Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 21,
+  "fields": {
+    "catagory": 8,
+    "name": "T-Shirt UrbanLadder",
+    "vendor": "UrbanLadder",
+    "product_image": "image/upload/v1760085631/Epicoutlte/products/frgdvc7l2vibtxct2nkb.jpg",
+    "quantity": 107,
+    "orginal_price": 25074,
+    "selling_price": 21062,
+    "description": "Durable",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-16T16:17:17.806Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 22,
+  "fields": {
+    "catagory": 8,
+    "name": "Glamood Jeans 21",
+    "vendor": "Glamood",
+    "product_image": "image/upload/v1760085621/Epicoutlte/products/pfhatqqxpurkgvufbjoz.jpg",
+    "quantity": 91,
+    "orginal_price": 40821,
+    "selling_price": 35005,
+    "description": "Regular Fit Jeans men",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.810Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 23,
+  "fields": {
+    "catagory": 8,
+    "name": "Kimjeans Jeans",
+    "vendor": "Kimjeans",
+    "product_image": "image/upload/v1760085588/Epicoutlte/products/ykm22gvsldmc1wwgxdxb.jpg",
+    "quantity": 187,
+    "orginal_price": 51724,
+    "selling_price": 41921,
+    "description": "Stylein",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.814Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 24,
+  "fields": {
+    "catagory": 7,
+    "name": "Evermotion Sofa",
+    "vendor": "Evermotion",
+    "product_image": "image/upload/v1760085570/Epicoutlte/products/in0t9ygratnd93vaomsm.webp",
+    "quantity": 188,
+    "orginal_price": 55904,
+    "selling_price": 45769,
+    "description": "Latest model",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.818Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 25,
+  "fields": {
+    "catagory": 5,
+    "name": "Samsung Galaxy 24",
+    "vendor": "Samsung",
+    "product_image": "image/upload/v1760085534/Epicoutlte/products/euj94ssmd69nhpk1syvn.webp",
+    "quantity": 6,
+    "orginal_price": 13664,
+    "selling_price": 12223,
+    "description": "Popular choice",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-16T16:17:17.823Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 26,
+  "fields": {
+    "catagory": 7,
+    "name": "IKEA Bed (King Size)",
+    "vendor": "IKEA",
+    "product_image": "image/upload/v1760084636/Epicoutlte/products/pq10tzyt3joukoxmjxzx.webp",
+    "quantity": 10,
+    "orginal_price": 55000,
+    "selling_price": 47500,
+    "description": "Comfortable wooden king bed.",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-18T14:56:28.896Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 27,
+  "fields": {
+    "catagory": 7,
+    "name": "Wardrobe 4-Door",
+    "vendor": "Godrej",
+    "product_image": "image/upload/v1760084623/Epicoutlte/products/tvimaogh1op4tsqngq1k.webp",
+    "quantity": 22,
+    "orginal_price": 38000,
+    "selling_price": 34200,
+    "description": "Spacious steel wardrobe.",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-18T14:57:39.265Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 28,
+  "fields": {
+    "catagory": 7,
+    "name": "DiningTable UL",
+    "vendor": "UrbanLadder",
+    "product_image": "image/upload/v1760084612/Epicoutlte/products/mwgvg2lbdshq6hznjso1.jpg",
+    "quantity": 12,
+    "orginal_price": 9500,
+    "selling_price": 8000,
+    "description": "Stylish wooden table.",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-18T14:58:50.479Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 29,
+  "fields": {
+    "catagory": 6,
+    "name": "India Gate Rice Bag",
+    "vendor": "India Gate",
+    "product_image": "image/upload/v1760084602/Epicoutlte/products/u97whk9jmh1ctetzermu.webp",
+    "quantity": 12,
+    "orginal_price": 185,
+    "selling_price": 160,
+    "description": "Premium basmati rice.",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-18T15:00:07.287Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 30,
+  "fields": {
+    "catagory": 6,
+    "name": "Aashirvaad Wheat Flour",
+    "vendor": "Aashirvaad",
+    "product_image": "image/upload/v1760084590/Epicoutlte/products/usgqnpy1rdseh8kh6emf.webp",
+    "quantity": 22,
+    "orginal_price": 560,
+    "selling_price": 480,
+    "description": "High-quality atta.",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-18T15:01:20.258Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 31,
+  "fields": {
+    "catagory": 6,
+    "name": "Tata Sugar 5kg",
+    "vendor": "Tata",
+    "product_image": "image/upload/v1760084579/Epicoutlte/products/igj7d1cp0ujwbysb1ed1.webp",
+    "quantity": 22,
+    "orginal_price": 280,
+    "selling_price": 250,
+    "description": "Refined white sugar.",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-18T15:02:30.662Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 32,
+  "fields": {
+    "catagory": 6,
+    "name": "Sunflower Oil 1L",
+    "vendor": "Fortune",
+    "product_image": "image/upload/v1760084565/Epicoutlte/products/imrnh97har6nr44yi8dm.webp",
+    "quantity": 22,
+    "orginal_price": 180,
+    "selling_price": 160,
+    "description": "Healthy cooking oil.",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-18T15:03:45.055Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 33,
+  "fields": {
+    "catagory": 5,
+    "name": "OnePlus Nord 3",
+    "vendor": "OnePlus",
+    "product_image": "image/upload/v1760084553/Epicoutlte/products/pkzniiekvms4qofyeob2.webp",
+    "quantity": 22,
+    "orginal_price": 35000,
+    "selling_price": 32000,
+    "description": "Smooth performance phone.",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-18T15:07:39.566Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 34,
+  "fields": {
+    "catagory": 5,
+    "name": "iPhone 14",
+    "vendor": "Apple",
+    "product_image": "image/upload/v1760084540/Epicoutlte/products/vcibg0pfxodfhc7thvxx.webp",
+    "quantity": 22,
+    "orginal_price": 79000,
+    "selling_price": 74000,
+    "description": "Latest Apple flagship",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-18T15:08:56.017Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 35,
+  "fields": {
+    "catagory": 9,
+    "name": "Sony PlayStation",
+    "vendor": "Sony",
+    "product_image": "image/upload/v1760084526/Epicoutlte/products/eiustocmhxqu2lgl2klu.webp",
+    "quantity": 23,
+    "orginal_price": 55000,
+    "selling_price": 50000,
+    "description": "PlayStation 5",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-18T15:09:59.636Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 36,
+  "fields": {
+    "catagory": 9,
+    "name": "Air Conditioner",
+    "vendor": "Voltas",
+    "product_image": "image/upload/v1760084473/Epicoutlte/products/u1tsrayjnmppp4n9jfix.webp",
+    "quantity": 2,
+    "orginal_price": 38000,
+    "selling_price": 35000,
+    "description": "Energy-saving AC.",
+    "status": false,
+    "Trending": false,
+    "Created_at": "2025-09-18T15:10:51.278Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 37,
+  "fields": {
+    "catagory": 9,
+    "name": "LG Smart TV 43",
+    "vendor": "LG",
+    "product_image": "image/upload/v1760084462/Epicoutlte/products/ycc05vq3qkwgmfxbyq9c.webp",
+    "quantity": 0,
+    "orginal_price": 42000,
+    "selling_price": 38000,
+    "description": "4K UHD Smart TV.",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-09-18T15:11:57.389Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 38,
+  "fields": {
+    "catagory": 9,
+    "name": "Xbox Series-X-Gaming-Console",
+    "vendor": "Xbox",
+    "product_image": "image/upload/v1760083005/Epicoutlte/products/pjnohcjhawb1mth7ojax.webp",
+    "quantity": 5,
+    "orginal_price": 60000,
+    "selling_price": 55000,
+    "description": "Newest-Microsoft-Xbox-Series-X-Gaming-Console-1TB-SSD-Black-X-Version-with-Disc-Drive",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-10-07T07:55:58.042Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 39,
+  "fields": {
+    "catagory": 8,
+    "name": "RX T-shirt",
+    "vendor": "RX",
+    "product_image": "image/upload/v1760087705/Epicoutlte/products/linklaprddozrr6ffyaf.png",
+    "quantity": 15,
+    "orginal_price": 15000,
+    "selling_price": 8000,
+    "description": "Stylish, comfortable, and uniquely you – our brand T-shirt makes every look effortless.",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-10-10T09:15:05.869Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 40,
+  "fields": {
+    "catagory": 8,
+    "name": "RX Formal's",
+    "vendor": "RX",
+    "product_image": "image/upload/v1760087896/Epicoutlte/products/lcvwfyepyseczvxidbnt.png",
+    "quantity": 24,
+    "orginal_price": 20000,
+    "selling_price": 12000,
+    "description": "Stylish, comfortable, and uniquely you – our brand Formal shirt makes every look effortless.",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-10-10T09:18:17.882Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 41,
+  "fields": {
+    "catagory": 9,
+    "name": "Fridge",
+    "vendor": "Whirlpool",
+    "product_image": "image/upload/v1760088742/Epicoutlte/products/i9kmnjrydqnovdgjo5q0.webp",
+    "quantity": 19,
+    "orginal_price": 25000,
+    "selling_price": 23000,
+    "description": "Keep your food fresh and drinks cool with our energy-efficient, spacious fridge.",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-10-10T09:32:23.434Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 42,
+  "fields": {
+    "catagory": 5,
+    "name": "Vivo Y300",
+    "vendor": "Vivo",
+    "product_image": "image/upload/v1760088889/Epicoutlte/products/slgjkvuceaxeso4ulzdb.png",
+    "quantity": 18,
+    "orginal_price": 25000,
+    "selling_price": 23000,
+    "description": "Vivo mobile – sleek design, powerful performance, and smart features in your hand.",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-10-10T09:34:50.515Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 43,
+  "fields": {
+    "catagory": 7,
+    "name": "BELLEZE TV stand",
+    "vendor": "BELLEZE",
+    "product_image": "image/upload/v1760089003/Epicoutlte/products/z8zszwhshreknq0ifq0x.webp",
+    "quantity": 20,
+    "orginal_price": 20000,
+    "selling_price": 15000,
+    "description": "Sturdy and stylish TV stand – the perfect blend of storage and elegance for your living room.",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-10-10T09:36:44.600Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 44,
+  "fields": {
+    "catagory": 7,
+    "name": "Computer table",
+    "vendor": "Pepperfry",
+    "product_image": "image/upload/v1760089146/Epicoutlte/products/mw9zsukpm2fxlcmyi16v.jpg",
+    "quantity": 10,
+    "orginal_price": 18000,
+    "selling_price": 13000,
+    "description": "Compact and durable computer table – organized workspace for productivity and comfort.",
+    "status": false,
+    "Trending": true,
+    "Created_at": "2025-10-10T09:39:07.102Z"
+  }
+},
+{
+  "model": "shop.cart",
+  "pk": 9,
+  "fields": {
+    "user": 1,
+    "product": 35,
+    "product_qty": 2,
+    "created_at": "2025-10-04T07:51:47.007Z"
+  }
+},
+{
+  "model": "shop.cart",
+  "pk": 16,
+  "fields": {
+    "user": 1,
+    "product": 12,
+    "product_qty": 1,
+    "created_at": "2025-10-05T07:57:57.458Z"
+  }
+},
+{
+  "model": "shop.cart",
+  "pk": 18,
+  "fields": {
+    "user": 1,
+    "product": 4,
+    "product_qty": 1,
+    "created_at": "2025-10-05T10:07:39.853Z"
+  }
+},
+{
+  "model": "shop.cart",
+  "pk": 24,
+  "fields": {
+    "user": 1,
+    "product": 42,
+    "product_qty": 1,
+    "created_at": "2025-10-10T09:42:29.715Z"
+  }
+},
+{
+  "model": "shop.cart",
+  "pk": 25,
+  "fields": {
+    "user": 1,
+    "product": 5,
+    "product_qty": 1,
+    "created_at": "2025-10-10T09:49:20.631Z"
+  }
+},
+{
+  "model": "shop.fav",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "product": 42,
+    "created_at": "2025-10-10T09:42:32.736Z"
+  }
+}
+]

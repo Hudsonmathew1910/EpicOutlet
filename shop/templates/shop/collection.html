@@ -9,11 +9,11 @@ Collections | EpicOutlet
 <section class="py-5 text-center container" style="background-color:#F0F5F9; border-radius: 0 0 10px 10px;">
   <div class="row py-lg-5" style="margin-top: 20px;">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <h1 class="fw-light">{{ request.user.username }}</h1>
+      <h1 class="fw-light"><span style="font-size: 1.5rem;">Welcome </span>{{ request.user.username }}</h1>
       <p class="lead text-muted">Explore our most popular products. Updated hourly.</p>
       {% if user.is_authenticated  %}
       <a href="{% url "profile" %}" class="btn btn-primary my-2">Account</a>
-      <a href="{% url "fav_page" %}" class="btn btn-secondary my-2">Favourite</a>
+      <a href="{% url "fav_page" %}" class="btn btn-secondary my-2">Favourite's</a>
       {% else %}
       <a href="{% url "login" %}" class="btn btn-primary my-2">Already User</a>
       <a href="{% url "register" %}" class="btn btn-secondary my-2">Register</a>
