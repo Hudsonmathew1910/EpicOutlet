@@ -1,26 +1,19 @@
 import json
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from . models import Catagory,Product, cart, fav
 from django.contrib import messages
 from . form import CustomUserForm
 from django.contrib.auth import authenticate, login, logout
-from django.views.decorators.csrf import csrf_exempt
 import os
 from dotenv import load_dotenv
-import google.generativeai as genai
 
-# Load environment variables
 load_dotenv()
 
-# Initialize Gemini AI (but don't start chat loop here)
 API_KEY = os.getenv('GOOGLE_API_KEY')
 
 if not API_KEY:
     raise ValueError("GOOGLE_API_KEY not found in environment variables. Please check your .env file.")
-
-genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel("gemini-2.0-flash")
 
 def home(request):
     protrend= Product.objects.filter(Trending=1)
@@ -151,58 +144,3 @@ def favpage(request):
         return render(request, "shop/fav.html", {"favitm":favitm})
     else:
         return redirect('/')
-
-# New AI Chat Views
-def ai_chat_page(request):
-    """Render the chat interface page"""
-    return render(request, "shop/ai_chat.html")
-
-@csrf_exempt
-def ai_chat_api(request):
-    """Handle AI chat messages via API"""
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            user_message = data.get('message', '')
-            
-            if not user_message:
-                return JsonResponse({'error': 'Empty message'}, status=400)
-            
-            # Start a new chat session for each request
-            chat = model.start_chat(history=[
-                {
-                    "role": "user",
-                    "parts": ["""You are an AI assistant for Epicoutlet, an e-commerce platform. Your role is to ONLY discuss topics related to Epicoutlet products, categories, shopping, and customer service.
-
-EPICOUTLET PRODUCT INFORMATION:
-- We have product categories with images and descriptions
-- Products belong to categories and have: name, vendor, product images, quantity, original price, selling price, descriptions
-- Users can add products to cart and favorites
-- Shopping features: cart management, favorite items, user accounts
-
-RULES:
-1. ONLY answer questions about Epicoutlet products, categories, shopping, prices, availability, or related e-commerce topics
-2. If asked about other topics, politely decline and redirect to Epicoutlet products
-3. Help users with product information, shopping guidance, and general e-commerce queries within Epicoutlet
-4. Do not provide information about competitors or other websites
-5. If unsure about product availability or specific details, suggest checking the website or contacting customer service
-
-How can I help you with Epicoutlet products today?"""]
-                }
-            ])
-            
-            # Get AI response
-            response = chat.send_message(user_message)
-            
-            return JsonResponse({
-                'response': response.text,
-                'status': 'success'
-            })
-            
-        except Exception as e:
-            return JsonResponse({
-                'error': 'I apologize, but I\'m having trouble responding. Please try again or visit our website directly.',
-                'status': 'error'
-            }, status=500)
-    
-    return JsonResponse({'error': 'Method not allowed'}, status=405)
