@@ -234,3 +234,11 @@ button.navdrop{
     }
 }
 
+@media (max-width: 576px) {
+    .cnt1, .cnt2, .cnt3, .cnt4 {
+        transform: scale(1.5); 
+        padding: 0;
+        margin-bottom: 20px;
+    }
+}
+
