@@ -9,117 +9,138 @@ EpicOutlet | Online Shopping
     {% include "shop/inc/message.html" %}
     <h1> Explore Epic Deals</h1>
     
-    <form method="GET" class="row g-3 mb-4">
-        <!-- Trending  -->
-            <div class="col-md-2 d-flex align-items-center">
-                {% if trending == '1' %}
-                    <!-- If active → remove trending -->
-                    <a href="?" class="btn rounded-pill px-3 py-1 btn-primary text-white">
-                        <i class="fa fa-fire me-1"></i> Trends
-                    </a>
-                {% else %}
-                    <!-- If not active → enable trending -->
-                    <button 
-                        type="submit"
-                        name="trending"
-                        value="1"
-                        class="btn rounded-pill px-3 py-1 btn-light">
-                        <i class="fa fa-fire me-1"></i> Trends
-                    </button>
-                {% endif %}
-            </div>
-        <!-- Category Dropdown -->
-             <div class="col-md-2" style="margin-left: -80px !important;">
-                 <select name="category" class="form-select">
-                     <option value="">All Categories</option>
-                     {% for cat in categories %}
-                     <option value="{{ cat.name }}"
-                        {% if selected_category == cat.name %} selected {% endif %}>
-                        {{ cat.name}}
-                     </option>
-                     {% endfor %}
-                    </select>
-                </div>
+    <form method="GET" class="row g-2 g-md-3 mb-4 filter-form">
 
-                  <!-- Vendor -->
-                   <div class="col-md-2">
-                    <select name="vendor" class="form-select">
-                        <option value="">Vendor</option>
-                        {% for ven in vendors %}
-                        <option value="{{ ven }}"
-                            {% if selected_vendor == ven %} selected {% endif %}>
-                        {{ ven }}
-                        </option>
-                        {% endfor %}
-                    </select>
-                   </div>
+        
+        <!-- TRENDS -->
+    <div class="col-6 col-md-2 order-1 d-flex align-items-center">
+        {% if trending == '1' %}
+            <a href="?" class="btn rounded-pill w-100 btn-primary text-white small-btn">
+                <i class="fa fa-fire me-1"></i> Trends
+            </a>
+        {% else %}
+            <button 
+                type="submit"
+                name="trending"
+                value="1"
+                class="btn rounded-pill w-100 btn-light small-btn">
+                <i class="fa fa-fire me-1"></i> Trends
+            </button>
+        {% endif %}
+    </div>
 
+    <!-- CATEGORY -->
+    <div class="col-6 col-md-2 order-2">
+        <select name="category" class="form-select small-input">
+            <option value="">Category</option>
+            {% for cat in categories %}
+            <option value="{{ cat.name }}"
+                {% if selected_category == cat.name %} selected {% endif %}>
+                {{ cat.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- VENDOR -->
+    <div class="col-6 col-md-2 order-3">
+        <select name="vendor" class="form-select small-input">
+            <option value="">Vendor</option>
+            {% for ven in vendors %}
+            <option value="{{ ven }}"
+                {% if selected_vendor == ven %} selected {% endif %}>
+                {{ ven }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- SORT -->
+    <div class="col-6 col-md-2 order-4">
+        <select name="sort" class="form-select small-input">
+            <option value="">Sort By</option>
+            <option value="low_high" {% if sort == "low_high" %} selected {% endif %}>
+                Low → High
+            </option>
+            <option value="high_low" {% if sort == "high_low" %} selected {% endif %}>
+                High → Low
+            </option>
+            <option value="vendor" {% if sort == "vendor" %} selected {% endif %}>
+                Vendor A → Z
+            </option>
+        </select>
+    </div>
+    
+    <!-- FILTER -->
+    <div class="col-6 col-md-1 order-5">
+        <button type="submit" class="btn btn-warning w-100 small-btn">
+            <i class="fa fa-filter me-1"></i> Filter
+        </button>
+    </div>
+
+    <!-- CLEAR -->
+    {% if request.GET %}
+        <div class="col-6 col-md-1 order-5">
+        <a href="{% url 'home' %}" class="btn btn-secondary w-100 small-btn">
+            <i class="fa fa-times me-1"></i> Clear
+        </a>
+    </div>
+    {% endif %}
+
+    <!-- SEARCH (FIRST ON MOBILE) -->
+    <div class="col-12 col-md-2 order-6">
+        <div class="position-relative">
+            <input 
+                type="text"
+                name="search"
+                class="form-control pe-5"
+                placeholder="Search product..."
+                value="{{ request.GET.search }}">
+    
+            <button type="submit" 
+                    class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                <i class="fa fa-search text-muted"></i>
+            </button>
+        </div>
+    </div>
+
+</form>
+<div class="row">
+    {% if protrend %}
+    {% for item in protrend %}
+        <div class="col-md-4 col-lg-3">
+            <div class="card my-3 shadow-sm img-hover-shadow" style="background-color: #F0F5F9;">
+                <a href="{% url "product_view" item.catagory.name item.name %}" 
+                   class="text-decoration-none text-body d-block">
                    
-                   <!-- Sorting -->
-                   <div class="col-md-2">
-                       <select name="sort" class="form-select">
-                           <option value="">Sort by</option>
-                           <option value="low_high" {% if sort == "low_high" %} selected {% endif %}>
-                               Price Low to High
-                            </option>
-                            <option value="high_low" {% if sort == "high_low" %} selected {% endif %}>
-                                Price High to Low
-                            </option>
-                            <option value="vendor" {% if sort == "vendor" %} selected {% endif %}>
-                                Vendor A → Z
-                            </option>
-                        </select>
-                    </div>
-                    
-                    
-                    <!-- Butttons  -->
-                <div class="col-md-1">
-                    <button type="submit" class="btn btn-warning w-100">
-                        <i class="fa fa-filter me-1"></i> Filter
-                    </button>
-                </div>
-                {% if request.GET %}
-                <div class="col-md-1">
-                    <a href="{% url 'home' %}" class="btn btn-secondary w-100">
-                        <i class="fa fa-times me-1"></i> Clear
-                    </a>
-                </div>
-                {% endif %}
+                    <img src="{{item.product_image.url}}" 
+                         class="card-img-top category-img" 
+                         alt="{{ item.name }}">
 
-                <!-- Search btn-->
-                <div class="col-md-3 ms-auto" style="width:20%;">
-                    <div class="position-relative">
-                        <input 
-                            type="text"
-                            name="search"
-                            class="form-control pe-5"
-                            placeholder="Search product..."
-                            value="{{ request.GET.search }}">
-
-                        <button type="submit" 
-                                class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
-                            <i class="fa fa-search text-muted"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        <div class="row">
-            {% for item in protrend %}
-            <div class="col-md-4 col-lg-3">
-                <div class="card my-3 shadow-sm img-hover-shadow" style="background-color: #F0F5F9;">
-                    <a href="{% url "product_view" item.catagory.name item.name %}" class="text-decoration-none text-body d-block">
-                    <img src="{{item.product_image.url}}" class="card-img-top category-img" alt="Categories">
                     <div class="card-body" style="margin-bottom:20px;">
                         <h5 class="card-title text-primary">{{item.name}}</h5>
                         <p class="card-text txt-align">
-                            <span class="float-start old-pri"><s>Rs.{{ item.orginal_price|stringformat:'d' }}</s></span>
-                            <span class="float-end new-pri">Rs.{{ item.selling_price|stringformat:'d' }}</span>
+                            <span class="float-start old-pri">
+                                <s>Rs.{{ item.orginal_price|stringformat:'d' }}</s>
+                            </span>
+                            <span class="float-end new-pri">
+                                Rs.{{ item.selling_price|stringformat:'d' }}
+                            </span>
                         </p>
                     </div>
-                    </a>
-                </div>
+                </a>
             </div>
-        {% endfor %}
         </div>
+        {% endfor %}
+    {% else %}
+        <div class="col-12 text-center py-5">
+            {% if request.GET.search %}
+                <h5>No products found for "{{ request.GET.search }}"</h5>
+            {% else %}
+                <h5>No products available</h5>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
     </div>
 {% endblock content %}

@@ -1,6 +1,6 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top navdrop" style="height: 50px;">
-  <div class="container">
+  <div class="container" id="nav-mar">
     <a class="navbar-brand" style='font-size: 25px;' id="title" href="{% url "home" %}"><img class="" src="{% static 'images/EP2.png' %}" alt="EpicOutlet Logo" style="height:40px; width:auto; margin-bottom: 5px;"> EpicOutlet</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -17,30 +17,30 @@
         <li class="nav-item">
           <a class="nav-link navu" href="{% url "cart" %}"><i class="fa fa-shopping-cart"></i> Cart</a>
         </li>
-        <li class="nav-item">
-              <button class="btn btn-dark navdrop" data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="nav-item" >
+              <button class="btn btn-dark acc-name" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-user"></i> {{ request.user.username }}
               </button>
-              <ul class="dropdown-menu dropdown-menu-dark navdrop" style="right:0; left:auto; top:95%;">
+              <ul class="dropdown-menu dropdown-menu-dark navdrop" id="inner-menu" style="right:0; left:auto; top:95%;">
                 <li class="nav-item">
                   <a class="nav-link navu" href="{% url "profile" %}"> <i class="fa fa-user"></i> Account</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link navu" href="{% url "logout" %}"> <i class="fa fa-sign-in"></i> Logout</a>
+                <li class="nav-item ">
+                  <a class="nav-link navu lout" href="{% url "logout" %}"> <i class="fa fa-sign-in"></i> Logout</a>
                 </li>
               </ul>
         </li>
         {% else %}
         <li class="nav-item">
-          <button class="btn btn-dark navdrop" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-dark acc-name" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-user"></i> Account
               </button>
-              <ul class="dropdown-menu dropdown-menu-dark navdrop" style="right:0; left:auto; top:95%;">
+              <ul class="dropdown-menu dropdown-menu-dark navdrop" id="inner-menu" style="right:0; left:auto; top:95%;">
                 <li class="nav-item">
                   <a class="nav-link navu" href="{% url "register" %}"> <i class="fa fa-users"></i> Register</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link navu" href="{% url "login" %}"style="margin-start: 10%;"> <i class="fa fa-sign-in"></i> Login</a>
+                  <a class="nav-link navu" href="{% url "login" %}"> <i class="fa fa-sign-in"></i> Login</a>
                 </li>
               </ul>
         </li>
