@@ -7,7 +7,7 @@ from . form import CustomUserForm
 from django.contrib.auth import authenticate, login, logout
 import os
 from dotenv import load_dotenv
-
+from django.db.models import Q
 load_dotenv()
 
 API_KEY = os.getenv('GOOGLE_API_KEY')
@@ -16,8 +16,81 @@ if not API_KEY:
     raise ValueError("GOOGLE_API_KEY not found in environment variables. Please check your .env file.")
 
 def home(request):
-    protrend= Product.objects.filter(Trending=1)
-    return render(request, "shop/index.html", {"protrend":protrend})
+    products = Product.objects.filter(status=False)
+    vendors = Product.objects.filter(status=False).values_list('vendor', flat=True).distinct().order_by('vendor')
+    
+    #  Get Filter value url
+    category = request.GET.get('category')
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+    vendor = request.GET.get('vendor')
+    trending = request.GET.get('trending')
+    sort = request.GET.get('sort')
+    search = request.GET.get('search')
+
+    # FILTER SECTION
+    # Filter by category
+    if category:
+        products = products.filter(catagory__name__iexact=category)
+    # Filter by price range
+    if min_price:
+        products = products.filter(selling_price__gte=min_price)
+    if max_price:
+        products = products.filter(selling_price__lte=max_price)
+    # Filter by vendor
+    if vendor:
+        products = products.filter(vendor=vendor)
+    # Filter by trending
+    if trending == "1":
+        products = products.filter(Trending=True)
+    # Filter by search
+    if search:
+        search = search.strip().lower()
+        if search.endswith('ies'):
+            search = search[:-3] + 'y'
+        elif search.endswith('es'):
+            search = search[:-2]
+        elif search.endswith('s'):
+            search = search[:-1]
+        products = products.filter(
+                                    Q(name__icontains=search) | 
+                                    Q(description__icontains=search) | 
+                                    Q(catagory__name__icontains=search) | 
+                                    Q(vendor__icontains=search)).distinct()
+
+
+    # ORDERING 
+    if sort == "low_high":
+        products = products.order_by('selling_price')
+    elif sort == 'high_low':
+        products = products.order_by('-selling_price')
+    elif sort == 'vendor':
+        products = products.order_by('vendor')
+    
+    context = {
+        "protrend": products,
+        "categories": Catagory.objects.filter(status=False),
+        "selected_vendor": vendor,
+        "selected_category": category,
+        "min_price": min_price,
+        "max_price": max_price,
+        "vendors": vendors,
+        "trending": trending,
+        "sort": sort,
+        "search": search,
+    }
+
+    # For Debugging
+    print("FULL URL:", request.get_full_path())
+    print("Category:", category)
+    print("Min:", min_price)
+    print("Max:", max_price)
+    print("Vendor:", vendor)
+    print("Trending:", trending)
+    print("Sort:", sort)
+    print("Count:", products.count())
+
+    return render(request, "shop/index.html", context)
 
 def login_page(request):
     if request.user.is_authenticated:
@@ -57,13 +130,49 @@ def collection(request):
     return render(request, "shop/collection.html", {"category":category})
 
 def collectionview(request, name):
-    if(Catagory.objects.filter(name=name, status=0)):
-        products = Product.objects.filter(catagory__name=name)
-        return render(request, "shop/products/products.html", {"products":products, "category_name":name})
-    else:
-        messages.warning(request, "No such Category Found")
+    # if(Catagory.objects.filter(name=name, status=0)):
+    #     products = Product.objects.filter(catagory__name=name)
+    #     return render(request, "shop/products/products.html", {"products":products, "category_name":name})
+    # else:
+    #     messages.warning(request, "No such Category Found")
+    #     return redirect('collection')
+    if not Catagory.objects.filter(name=name, status=0).exists():
+        messages.error(request, "No such Category Found")
         return redirect('collection')
+
+    products = Product.objects.filter(catagory__name=name, status=False)
+
+    vendors = products.values_list('vendor', flat=True).distinct().order_by('vendor')
+
+    # Get values
+    vendor = request.GET.get('vendor') 
+    trending = request.GET.get('trending')
+    sort = request.GET.get('sort')
+
+    # Filters
+    if vendor:
+         products = products.filter(vendor=vendor)
+    if trending == '1':
+        products = products.filter(Trending=True)
     
+    # Ordering
+    if sort == 'low_high':
+        products = products.order_by('selling_price')
+    elif sort == 'high_low':
+        products = products.order_by('-selling_price')
+    elif sort == 'vendor':
+        products = products.order_by('vendor')
+
+    context = {
+        'products': products,
+        'category_name': name,
+        'vendors': vendors,
+        'selected_vendor': vendor,
+        'trending': trending,
+        'sort': sort,
+    }
+    return render(request, "shop/products/products.html", context)
+
 def product_details(request, cname, pname):
     if Catagory.objects.filter(name=cname, status=0).exists():
         product = Product.objects.filter(name=pname, status=0).first()

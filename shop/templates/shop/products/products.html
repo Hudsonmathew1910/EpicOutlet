@@ -14,6 +14,73 @@
         <hr style="border-color: #b8bfc2;">
           {% include "shop/inc/message.html" %}
       </div>
+            <form method="GET" class="row g-3 mb-4">
+
+          <!-- Trending -->
+          <div class="col-md-2 d-flex align-items-center" style="margin-right: -75px !important;">
+              {% if trending == '1' %}
+                  <!-- If active → remove trending -->
+                  <a href="?" class="btn rounded-pill px-3 py-1 btn-primary text-white">
+                      <i class="fa fa-fire me-1"></i> Trends
+                  </a>
+              {% else %}
+                  <!-- If not active → enable trending -->
+                  <button 
+                      type="submit"
+                      name="trending"
+                      value="1"
+                      class="btn rounded-pill px-3 py-1 btn-light">
+                      <i class="fa fa-fire me-1"></i> Trends
+                  </button>
+              {% endif %}
+          </div>
+
+          <!-- Vendor -->
+          <div class="col-md-2">
+              <select name="vendor" class="form-select">
+                  <option value="">Vendor</option>
+                  {% for ven in vendors %}
+                  <option value="{{ ven }}"
+                      {% if selected_vendor == ven %} selected {% endif %}>
+                      {{ ven }}
+                  </option>
+                  {% endfor %}
+              </select>
+          </div>
+
+          <!-- Sort -->
+          <div class="col-md-2">
+              <select name="sort" class="form-select">
+                  <option value="">Sort by</option>
+                  <option value="low_high" {% if sort == "low_high" %} selected {% endif %}>
+                      Price Low to High
+                  </option>
+                  <option value="high_low" {% if sort == "high_low" %} selected {% endif %}>
+                      Price High to Low
+                  </option>
+                  <option value="vendor" {% if sort == "vendor" %} selected {% endif %}>
+                      Vendor A → Z
+                  </option>
+              </select>
+          </div>
+
+          <!-- Buttons -->
+          <div class="col-md-1">
+              <button type="submit" class="btn btn-warning w-100">
+                  <i class="fa fa-filter me-1"></i> Filter
+              </button>
+          </div>
+
+          {% if request.GET %}
+          <div class="col-md-1">
+              <a href="{% url 'collection_view' category_name %}" 
+                class="btn btn-secondary w-100">
+                  <i class="fa fa-times me-1"></i> Clear
+              </a>
+          </div>
+          {% endif %}
+
+      </form>
        {% for item in products %}
             <div class="col-md-4 col-lg-3">
                 <div class="card my-3 shadow-sm img-hover-shadow" style="background-color: #F0F5F9;">

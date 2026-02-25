@@ -29,6 +29,36 @@ a {
 #title{
     font-family: "SUSE Mono",sans-serif;
 }
+.cnt1 {
+    justify-content: center !important;
+    transform: scale(2); 
+    margin-bottom: 120px;
+    padding-left: 250px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.cnt2 {
+    justify-content: center !important;
+    transform: scale(2); 
+    margin-bottom: 150px;
+    padding-left: 300px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.cnt3 {
+    justify-content: center !important;
+    transform: scale(2); 
+    margin-bottom: 100px;
+    padding-right: 300px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+.cnt4 {
+    justify-content: center !important;
+    transform: scale(2); 
+    margin-bottom: 5px;
+    /* padding-right: 300px; */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+}
 footer{
     padding-top: 30px;
 }
@@ -162,5 +192,53 @@ button.navdrop{
   0% { opacity: 1; }
   70% { opacity: 1; }  
   100% { opacity: 0; display: none; }
+}
+
+
+@media (max-width: 768px) {
+
+    .table {
+        font-size: 12px;
+    }
+    
+    .table th,
+    .table td {
+        padding: 6px 4px;
+    }
+    
+
+    .btn {
+        font-size: 11px !important;
+        padding: 4px 8px !important;
+    }
+    
+
+    .table img {
+        height: 50px !important;
+        width: 50px !important;
+    }
+    
+
+    h4.mb-3 {
+        font-size: 1.3rem;
+    }
+    
+
+    .tab {
+        font-size: 11px;
+    }
+    
+    .tab .btn {
+        font-size: 10px !important;
+        padding: 3px 6px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .cnt1, .cnt2, .cnt3, .cnt4 {
+        transform: scale(1.5); 
+        padding: 0;
+        margin-bottom: 20px;
+    }
 }
 

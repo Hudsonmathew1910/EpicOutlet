@@ -28,8 +28,10 @@
                     {% for item in ucart %}
                     <tr>
                         {% comment %} <th scope="row">{{ item.product_id }}</th> {% endcomment %}
-                        <td><img src="{{ item.product.product_image.url }}" class="img-fluid rounded" style="height: 75px; width: 75px; object-fit: cover;" alt="{{ item.product.name }}"></td>
-                        <td><strong>{{ item.product }}</strong> <br> Partner - {{ item.product.vendor }}</td>
+                        <td><a href="{% url 'product_view' item.product.catagory.name item.product.name %}">
+                            <img src="{{ item.product.product_image.url }}" class="img-fluid rounded" style="height: 75px; width: 75px; object-fit: cover;" alt="{{ item.product.name }}"></a></td>
+                        <td><a href="{% url 'product_view' item.product.catagory.name item.product.name %}" class="text-decoration-none text-dark"><strong>{{ item.product }}</strong></a> 
+                            <br> Partner - {{ item.product.vendor }}</td>
                         <td><strong>{{ item.product_qty }} -{% if item.product_qty == 1 %} Stock {% else %} Stocks {% endif %}</strong> / <br> {{item.created_at}}</td>
                         <td class="amt">{{ item.total_cost }}</td>
                         {% comment %} <td>{{ item.created_at }}</td> {% endcomment %}

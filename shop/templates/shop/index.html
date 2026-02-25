@@ -1,15 +1,108 @@
 {% extends "shop/layouts/main.html" %}
-
-
 {% block title %}
 EpicOutlet | Online Shopping
 {% endblock title %}
 
 {% block content %}
 {% include "shop/inc/slider.html" %}
-    <div class="container" id="margin-shop" style="margin-bottom:80px;">
-        {% include "shop/inc/message.html" %}
-        <h1>Best deals</h1>
+<div class="container" id="margin-shop" style="margin-bottom:80px;">
+    {% include "shop/inc/message.html" %}
+    <h1> Explore Epic Deals</h1>
+    
+    <form method="GET" class="row g-3 mb-4">
+        <!-- Trending  -->
+            <div class="col-md-2 d-flex align-items-center">
+                {% if trending == '1' %}
+                    <!-- If active → remove trending -->
+                    <a href="?" class="btn rounded-pill px-3 py-1 btn-primary text-white">
+                        <i class="fa fa-fire me-1"></i> Trends
+                    </a>
+                {% else %}
+                    <!-- If not active → enable trending -->
+                    <button 
+                        type="submit"
+                        name="trending"
+                        value="1"
+                        class="btn rounded-pill px-3 py-1 btn-light">
+                        <i class="fa fa-fire me-1"></i> Trends
+                    </button>
+                {% endif %}
+            </div>
+        <!-- Category Dropdown -->
+             <div class="col-md-2" style="margin-left: -80px !important;">
+                 <select name="category" class="form-select">
+                     <option value="">All Categories</option>
+                     {% for cat in categories %}
+                     <option value="{{ cat.name }}"
+                        {% if selected_category == cat.name %} selected {% endif %}>
+                        {{ cat.name}}
+                     </option>
+                     {% endfor %}
+                    </select>
+                </div>
+
+                  <!-- Vendor -->
+                   <div class="col-md-2">
+                    <select name="vendor" class="form-select">
+                        <option value="">Vendor</option>
+                        {% for ven in vendors %}
+                        <option value="{{ ven }}"
+                            {% if selected_vendor == ven %} selected {% endif %}>
+                        {{ ven }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                   </div>
+
+                   
+                   <!-- Sorting -->
+                   <div class="col-md-2">
+                       <select name="sort" class="form-select">
+                           <option value="">Sort by</option>
+                           <option value="low_high" {% if sort == "low_high" %} selected {% endif %}>
+                               Price Low to High
+                            </option>
+                            <option value="high_low" {% if sort == "high_low" %} selected {% endif %}>
+                                Price High to Low
+                            </option>
+                            <option value="vendor" {% if sort == "vendor" %} selected {% endif %}>
+                                Vendor A → Z
+                            </option>
+                        </select>
+                    </div>
+                    
+                    
+                    <!-- Butttons  -->
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-warning w-100">
+                        <i class="fa fa-filter me-1"></i> Filter
+                    </button>
+                </div>
+                {% if request.GET %}
+                <div class="col-md-1">
+                    <a href="{% url 'home' %}" class="btn btn-secondary w-100">
+                        <i class="fa fa-times me-1"></i> Clear
+                    </a>
+                </div>
+                {% endif %}
+
+                <!-- Search btn-->
+                <div class="col-md-3 ms-auto" style="width:20%;">
+                    <div class="position-relative">
+                        <input 
+                            type="text"
+                            name="search"
+                            class="form-control pe-5"
+                            placeholder="Search product..."
+                            value="{{ request.GET.search }}">
+
+                        <button type="submit" 
+                                class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                            <i class="fa fa-search text-muted"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
         <div class="row">
             {% for item in protrend %}
             <div class="col-md-4 col-lg-3">
