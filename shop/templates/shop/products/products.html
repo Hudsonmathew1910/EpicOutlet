@@ -17,7 +17,7 @@
             <form method="GET" class="row g-3 mb-4">
 
           <!-- Trending -->
-          <div class="col-md-2 d-flex align-items-center" style="margin-right: -75px !important;">
+          <div class="col-6 order-2 col-md-2 d-flex align-items-center" style="margin-right: -75px !important;">
               {% if trending == '1' %}
                   <!-- If active → remove trending -->
                   <a href="?" class="btn rounded-pill px-3 py-1 btn-primary text-white">
@@ -36,7 +36,7 @@
           </div>
 
           <!-- Vendor -->
-          <div class="col-md-2">
+          <div class="col-6 col-md-2 order-1">
               <select name="vendor" class="form-select">
                   <option value="">Vendor</option>
                   {% for ven in vendors %}
@@ -49,7 +49,7 @@
           </div>
 
           <!-- Sort -->
-          <div class="col-md-2">
+          <div class="col-6 col-md-2 order-1">
               <select name="sort" class="form-select">
                   <option value="">Sort by</option>
                   <option value="low_high" {% if sort == "low_high" %} selected {% endif %}>
@@ -65,14 +65,14 @@
           </div>
 
           <!-- Buttons -->
-          <div class="col-md-1">
+          <div class="col-6 col-md-1 order-2 custom-width">
               <button type="submit" class="btn btn-warning w-100">
                   <i class="fa fa-filter me-1"></i> Filter
               </button>
           </div>
 
           {% if request.GET %}
-          <div class="col-md-1">
+          <div class="col-6 col-md-1 order-2 custom-width">
               <a href="{% url 'collection_view' category_name %}" 
                 class="btn btn-secondary w-100">
                   <i class="fa fa-times me-1"></i> Clear

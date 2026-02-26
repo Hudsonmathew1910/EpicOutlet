@@ -79,9 +79,18 @@ footer {
 .navbar-nav .nav-link:hover {
     color: #ffca2c !important;
 }
+.navbar-nav .lout:hover {
+    color: #FF2E63 !important;
+}
+.navbar-nav .lin:hover {
+    color: #008cff !important;
+}
 
-.acc-name:hover {
+.acc-name{
     color: #ffca2c !important;
+}
+.acc-name:hover{
+    color: #F0F5F9 !important;
 }
 
 .acc-log:hover {
@@ -318,6 +327,9 @@ button.navdrop {
 
     .navbar-nav .nav-link:hover {
         color: #ffca2c !important;
+    }
+    .custom-width{
+        max-width: 130px !important;
     }
 
 }
