@@ -8,6 +8,8 @@ from django.contrib.auth import authenticate, login, logout
 import os
 from dotenv import load_dotenv
 from django.db.models import Q
+from api.chat_service import chat_with_ai
+from django.views.decorators.csrf import csrf_exempt
 load_dotenv()
 
 API_KEY = os.getenv('GOOGLE_API_KEY')
@@ -253,3 +255,24 @@ def favpage(request):
         return render(request, "shop/fav.html", {"favitm":favitm})
     else:
         return redirect('/')
+
+def chat_page(request):
+    return render(request, "shop/chat.html")
+
+@csrf_exempt
+def ai_chat_api(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            message = data.get("message", "")
+            
+            if not request.session.session_key:
+                request.session.create()
+            conversation_id = request.session.session_key
+            
+            is_admin = request.user.is_authenticated and request.user.is_superuser
+            reply = chat_with_ai(message, conversation_id=conversation_id, is_admin=is_admin)
+            return JsonResponse({"reply": reply})
+        except Exception as e:
+            return JsonResponse({"reply": f"Error: {str(e)}"}, status=500)
+    return JsonResponse({"error": "Invalid method"}, status=405)

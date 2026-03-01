@@ -29,8 +29,10 @@ Rules:
 - NEVER invent products.
 - If a question is unrelated to ecommerce or products, politely refuse.
 - Always include the exact product URL provided by the tool.
-- Do not rewrite or prepend domain to tool URLs; return the same path string exactly.
-- Show links only as route paths in this format: /collection/<category>/<product>/
+- Format your response using proper Markdown.
+- If you are listing multiple products, you MUST use a proper Markdown table (using `|` for columns).
+- Do NOT provide raw or bare URLs. Make the product name a clickable Markdown link using the format `[Product Name](/collection/<category>/<product>/)`.
+- Put the markdown link directly inside the table or text. Do NOT list the product links separately at the end.
 - If the tool returns one or more products, DO NOT say "not found"; present those products as available options.
 - If the requested keyword is unavailable but related category products are returned, clearly say they are alternatives and list them.
 """
@@ -87,7 +89,7 @@ def _normalize_links_to_paths(text: str, products: list) -> str:
     return cleaned
 
 
-def chat_with_ai(user_message: str, conversation_id: str = "default"):
+def chat_with_ai(user_message: str, conversation_id: str = "default", is_admin: bool = False):
     history = list(_CONVERSATION_HISTORY[conversation_id])
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
@@ -136,6 +138,11 @@ def chat_with_ai(user_message: str, conversation_id: str = "default"):
         return "I apologize, but I could not complete the request after multiple tool calls. Please try rephrasing your query."
     except Exception as e:
         error_msg = str(e)
+        if "rate_limit_exceeded" in error_msg.lower() or "429" in error_msg:
+            if is_admin:
+                return f"I encountered an unexpected error: {error_msg}"
+            return "EpicOutlet server down"
+            
         if "tool_use_failed" in error_msg:
             return "I apologize, but I had trouble processing your search request. Could you please rephrase it slightly? For example: 'Show me mobile phones under 35000'."
         return f"I encountered an unexpected error: {error_msg}"

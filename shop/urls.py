@@ -19,5 +19,7 @@ urlpatterns = [
     path('fav_page', views.favpage, name='fav_page'),
     path('remove_fav/<str:fid>', views.remove_fav, name='remove_fav'),
     path('api/', include(v1_api.urls)),
+    path('chat/', views.chat_page, name='chat'),
+    path('ai-chat/', views.ai_chat_api, name='ai_chat_api'),
 ]
 

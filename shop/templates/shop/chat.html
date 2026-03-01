@@ -4,6 +4,27 @@ EpicOutlet | AI Assistant
 {% endblock title %}
 
 {% block content %}
+
+<!-- Include Marked.js for Markdown parsing -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+/* Add simple styling for markdown tables */
+.ai-message table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; color: #212529; }
+.ai-message th, .ai-message td { padding: 0.75rem; vertical-align: top; border-top: 1px solid #dee2e6; }
+.ai-message thead th { vertical-align: bottom; border-bottom: 2px solid #dee2e6; background-color: rgba(0,0,0,0.05); }
+.message-content a { 
+    color: #212529; 
+    text-decoration: none; 
+    font-weight: 600;
+    transition: color 0.2s ease-in-out;
+}
+.message-content a:hover {
+    color: #0d6efd;
+    text-decoration: underline;
+}
+</style>
+
 <div class="container" id="margin-shop" style="margin-bottom:80px;">
     
     <h1 class="mb-4 text-center">EpicOutlet AI Assistant</h1>
@@ -56,7 +77,14 @@ function createMessage(content, type) {
 
     const messageContent = document.createElement("div");
     messageContent.classList.add("message-content");
-    messageContent.innerHTML = content;
+    
+    if (type === "ai") {
+        // Parse markdown content from the AI 
+        messageContent.innerHTML = marked.parse(content);
+    } else {
+        // Plain text for user (escape to prevent XSS)
+        messageContent.innerText = content;
+    }
 
     messageDiv.appendChild(messageContent);
     chatBody.appendChild(messageDiv);
