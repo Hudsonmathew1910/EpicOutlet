@@ -141,7 +141,7 @@ def chat_with_ai(user_message: str, conversation_id: str = "default", is_admin: 
         if "rate_limit_exceeded" in error_msg.lower() or "429" in error_msg:
             if is_admin:
                 return f"I encountered an unexpected error: {error_msg}"
-            return "EpicOutlet server down"
+            return "EpiOutlet server down, Please wait for few minutes"
             
         if "tool_use_failed" in error_msg:
             return "I apologize, but I had trouble processing your search request. Could you please rephrase it slightly? For example: 'Show me mobile phones under 35000'."
