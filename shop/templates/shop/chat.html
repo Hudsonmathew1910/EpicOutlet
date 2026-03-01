@@ -1,28 +1,119 @@
 {% extends "shop/layouts/main.html" %}
-
-
 {% block title %}
-EpicOutlet | Online Shopping
+EpicOutlet | AI Assistant
 {% endblock title %}
 
-
-{% comment %} <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> {% endcomment %}
-{% comment %} <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> {% endcomment %}
-{% comment %} <!------ Include the above in your HEAD tag ----------> {% endcomment %}
 {% block content %}
-        <div class="col-sm-3 col-sm-offset-4 frame">
-            <ul></ul>
-            <div>
-                <div class="msj-rta macro">                        
-                    <div class="text text-r" style="background:whitesmoke !important">
-                        <input class="mytext" placeholder="Type a message"/>
-                    </div> 
+<div class="container" id="margin-shop" style="margin-bottom:80px;">
+    
+    <h1 class="mb-4 text-center">EpicOutlet AI Assistant</h1>
 
+    <div class="card shadow-lg chat-card">
+        <div class="card-body chat-body" id="chatBody">
+
+            <!-- Welcome Message -->
+            <div class="chat-message ai-message">
+                <div class="message-content">
+                    👋 Hi! I'm your EpicOutlet assistant.  
+                    Ask me about products, trends, vendors or deals!
                 </div>
-                <div style="padding:10px;">
-                    <span class="glyphicon glyphicon-share-alt"></span>
-                </div>                
             </div>
-        </div>       
+
+        </div>
+
+        <div class="card-footer chat-footer">
+            <form id="chatForm" class="d-flex gap-2">
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    class="form-control chat-input"
+                    placeholder="Ask something..."
+                    required
+                >
+                <button type="submit" class="btn pro-but px-4">
+                    <i class="fa fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+const chatForm = document.getElementById("chatForm");
+const userInput = document.getElementById("userInput");
+const chatBody = document.getElementById("chatBody");
+
+// Auto scroll
+function scrollToBottom() {
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// Create message element
+function createMessage(content, type) {
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("chat-message", type === "user" ? "user-message" : "ai-message");
+
+    const messageContent = document.createElement("div");
+    messageContent.classList.add("message-content");
+    messageContent.innerHTML = content;
+
+    messageDiv.appendChild(messageContent);
+    chatBody.appendChild(messageDiv);
+    scrollToBottom();
+}
+
+// Typing animation
+function showTyping() {
+    const typingDiv = document.createElement("div");
+    typingDiv.classList.add("chat-message", "ai-message");
+    typingDiv.setAttribute("id", "typingIndicator");
+
+    typingDiv.innerHTML = `
+        <div class="message-content typing">
+            <span></span><span></span><span></span>
+        </div>
+    `;
+
+    chatBody.appendChild(typingDiv);
+    scrollToBottom();
+}
+
+function removeTyping() {
+    const typing = document.getElementById("typingIndicator");
+    if (typing) typing.remove();
+}
+
+chatForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    createMessage(message, "user");
+    userInput.value = "";
+
+    showTyping();
+
+    // Replace this fetch URL with your Django backend endpoint
+    fetch("/ai-chat/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": "{{ csrf_token }}"
+        },
+        body: JSON.stringify({ message: message })
+    })
+    .then(response => response.json())
+    .then(data => {
+        removeTyping();
+        createMessage(data.reply, "ai");
+    })
+    .catch(error => {
+        removeTyping();
+        createMessage("❗ Something went wrong. Please try again.", "ai");
+    });
+});
+</script>
+
 {% endblock content %}

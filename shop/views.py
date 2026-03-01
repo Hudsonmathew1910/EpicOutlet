@@ -175,7 +175,7 @@ def collectionview(request, name):
 
 def product_details(request, cname, pname):
     if Catagory.objects.filter(name=cname, status=0).exists():
-        product = Product.objects.filter(name=pname, status=0).first()
+        product = Product.objects.filter(catagory__name=cname, name=pname, status=0).first()
         if product:
             return render(request, "shop/products/productview.html", {"product": product})
         else:
