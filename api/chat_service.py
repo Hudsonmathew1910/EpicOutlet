@@ -34,7 +34,7 @@ Rules:
 - Do NOT provide raw or bare URLs. Make the product name a clickable Markdown link using the format `[Product Name](/collection/<category>/<product>/)`.
 - Put the markdown link directly inside the table or text. Do NOT list the product links separately at the end.
 - If the tool returns one or more products, DO NOT say "not found"; present those products as available options.
-- If the requested keyword is unavailable but related category products are returned, clearly say they are alternatives and list them.
+- If the requested keyword is unavailable but related category products are returned.
 """
 TOOLS = [
     {
@@ -141,7 +141,7 @@ def chat_with_ai(user_message: str, conversation_id: str = "default", is_admin: 
         if "rate_limit_exceeded" in error_msg.lower() or "429" in error_msg:
             if is_admin:
                 return f"I encountered an unexpected error: {error_msg}"
-            return "EpiOutlet server down, Please wait for few minutes"
+            return "EpicOutlet server down, Please wait for few minutes"
             
         if "tool_use_failed" in error_msg:
             return "I apologize, but I had trouble processing your search request. Could you please rephrase it slightly? For example: 'Show me mobile phones under 35000'."

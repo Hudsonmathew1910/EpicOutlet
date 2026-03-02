@@ -11,7 +11,10 @@
           <a class="nav-link active navu" aria-current="page" href="{% url "home" %}"><i class="fa fa-home"></i> Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link navu" href="{% url "collection" %}"><i class="fa fa-cubes"></i> Collection</a>
+          <a class="nav-link navu" href="{% url "collection" %}"><i class="fa fa-list"></i> Collection</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navu" href="{% url "chat" %}"><i class="fa fa-robot"></i> Shop-Bot</a>
         </li>
         {% if request.user.is_authenticated %}
         <li class="nav-item">

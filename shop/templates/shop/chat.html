@@ -23,9 +23,51 @@ EpicOutlet | AI Assistant
     color: #0d6efd;
     text-decoration: underline;
 }
+@media (max-width: 768px) {
+
+  .ai-message table,
+  .ai-message thead,
+  .ai-message tbody,
+  .ai-message th,
+  .ai-message td,
+  .ai-message tr {
+    display: block;
+    width: 100%;
+  }
+
+  .ai-message thead {
+    display: none; /* hide table header */
+  }
+
+  .ai-message tr {
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 0.5rem;
+  }
+
+  .ai-message td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 0.5rem 0;
+    text-align: left;
+  }
+
+  .ai-message td:last-child {
+    border-bottom: none;
+  }
+
+  /* Show label before each cell */
+  .ai-message td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+}
 </style>
 
-<div class="container" id="margin-shop" style="margin-bottom:80px;">
+<div class="container" id="margin-shop" style="margin-bottom:80px; margin-top: 80px; ">
     
     <h1 class="mb-4 text-center">EpicOutlet AI Assistant</h1>
 
