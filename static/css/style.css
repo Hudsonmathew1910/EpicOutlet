@@ -236,7 +236,15 @@ button.navdrop {
 }
 
 @media (max-width: 768px) {
-
+    .pic-box, .pic-box + .col-4 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    .pro-det {
+        width: 100% !important;
+        height: auto !important;
+    }   
     .category-img {
         height: 150px;
     }
