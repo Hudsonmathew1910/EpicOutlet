@@ -25,7 +25,7 @@ Products | EpicOutlet
           {% if product.Trending %}
           <div class="hot"><i class="fa fa-fire"></i> HOT</div>
           {% endif %}
-          <img src="{{product.product_image.url}}" class="card-img-top pro-img pro-det" alt="{{product}}">
+          <img src="{{product.product_image.url}}" class="card-img-top pro-img pro-det" alt="{{product}}" loading="lazy">
         </div>
         <div class="col-4 my-3">
           <h4 class="text-success he2">{{ product.name | upper }}</h4>

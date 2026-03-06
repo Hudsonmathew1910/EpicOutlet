@@ -18,8 +18,8 @@ if not API_KEY:
     raise ValueError("GOOGLE_API_KEY not found in environment variables. Please check your .env file.")
 
 def home(request):
-    products = Product.objects.filter(status=False)
-    vendors = Product.objects.filter(status=False).values_list('vendor', flat=True).distinct().order_by('vendor')
+    products = Product.objects.filter(status=False).select_related('catagory')
+    vendors = products.values_list('vendor', flat=True).distinct().order_by('vendor')
     
     #  Get Filter value url
     category = request.GET.get('category')
@@ -84,13 +84,13 @@ def home(request):
 
     # For Debugging
     print("FULL URL:", request.get_full_path())
-    print("Category:", category)
-    print("Min:", min_price)
-    print("Max:", max_price)
-    print("Vendor:", vendor)
-    print("Trending:", trending)
-    print("Sort:", sort)
-    print("Count:", products.count())
+    # print("Category:", category)
+    # print("Min:", min_price)
+    # print("Max:", max_price)
+    # print("Vendor:", vendor)
+    # print("Trending:", trending)
+    # print("Sort:", sort)
+    # print("Count:", products.count())
 
     return render(request, "shop/index.html", context)
 
