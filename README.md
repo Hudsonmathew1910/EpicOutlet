@@ -1,4 +1,4 @@
-# EpicOutlet — AI-Powered E-Commerce Web Application
+# EpicOutlet — AI-Powered E-Commerce Web App
 
 EpicOutlet is a full-featured e-commerce web app built with **Python** and **Django**. It supports multi-category product browsing, search, user accounts, cart + favourites, and an **AI shopping chatbot (Shop-Bot)** to help users find products using natural language.
 
