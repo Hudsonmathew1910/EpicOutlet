@@ -1,63 +1,96 @@
 {% extends "shop/layouts/main.html" %}
+{% load shop_extras %}
 
-{% block title %}
- Your Cart | EpicOutlet
-{% endblock title  %}
+{% block title %}Shopping Cart | EpicOutlet{% endblock title %}
+{% block robots %}<meta name="robots" content="noindex">{% endblock %}
 
 {% block content %}
-<section class="py-4 my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h4 class="mb-3">Your Cart</h4>
-                {% comment %} <hr style="broder-color: white;"> {% endcomment %}
+<div class="container pt-3">
+  {% if summary.items %}
+  <div class="row g-3">
+    <div class="col-lg-8">
+      <section class="cart-box" aria-labelledby="cart-title">
+        <div class="head">
+          <h1 id="cart-title" class="h5 mb-0">Shopping Cart <span class="text-muted-2 fw-normal fs-6">({{ summary.count }} item{{ summary.count|pluralize }})</span></h1>
+          <span class="secure-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> Safe and secure payments</span>
+        </div>
+
+        <div class="px-3 py-2 small" data-free-ship {% if not summary.free_shipping_gap %}hidden{% endif %} style="background:#fffbea;border-bottom:1px solid var(--eo-line)">
+          <i class="fa-solid fa-truck-fast me-1 text-warning" aria-hidden="true"></i>
+          Add <strong data-summary="gap">₹{{ summary.free_shipping_gap|inr }}</strong> of eligible items to get <strong>FREE delivery</strong>.
+          <div class="ship-progress mt-1"><span style="width: {{ summary.subtotal|percent_of:summary.free_shipping_threshold }}%"></span></div>
+        </div>
+
+        {% for item in summary.items %}
+        <div class="line-item">
+          <div class="thumb">
+            <a href="{{ item.product.get_absolute_url }}"><img src="{{ item.product.product_image|cdn_fit:240 }}" alt="{{ item.product.name }}" loading="lazy"></a>
+            <div class="qty-stepper" role="group" aria-label="Quantity for {{ item.product.name }}">
+              <button type="button" data-step="-1" aria-label="Decrease quantity" {% if item.product_qty <= 1 %}disabled{% endif %}><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+              <input type="number" value="{{ item.product_qty }}" min="1" max="{{ item.product.max_orderable|default:1 }}" data-cart-qty="{{ item.id }}" aria-label="Quantity">
+              <button type="button" data-step="1" aria-label="Increase quantity" {% if item.product_qty >= item.product.max_orderable %}disabled{% endif %}><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </div>
-            <table class="table table-striped-columns tab">
-                <thead>
-                    <tr>
-                    {% comment %} <th scope="col">Id</th> {% endcomment %}
-                    <th style="width: 50px;" scope="col">Product</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Detail's</th>
-                    <th scope="col">₹ Price</th>
-                    {% comment %} <th scope="col">Date / Time</th> {% endcomment %}
-                    <th scope="col">Trash</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in ucart %}
-                    <tr>
-                        {% comment %} <th scope="row">{{ item.product_id }}</th> {% endcomment %}
-                        <td><a href="{% url 'product_view' item.product.catagory.name item.product.name %}">
-                            <img src="{{ item.product.product_image.url }}" class="img-fluid rounded" style="height: 75px; width: 75px; object-fit: cover;" alt="{{ item.product.name }}"></a></td>
-                        <td><a href="{% url 'product_view' item.product.catagory.name item.product.name %}" class="text-decoration-none text-dark"><strong>{{ item.product }}</strong></a> 
-                            <br> Partner - {{ item.product.vendor }}</td>
-                        <td><strong>{{ item.product_qty }} -{% if item.product_qty == 1 %} Stock {% else %} Stocks {% endif %}</strong> / <br> {{item.created_at}}</td>
-                        <td class="amt">{{ item.total_cost }}</td>
-                        {% comment %} <td>{{ item.created_at }}</td> {% endcomment %}
-                        <td><a href="{% url "remove_cart" item.id %}" type="button" onclick="return confirm('Are you sure to Remove?')" class="btn btn-danger"><i class="fa fa-trash"></i> Remove</a></td>
-                    </tr>
-                    {% endfor %}
-                    <tr>
-                        <td></td>
-                        <td ><b>Total Amount:</b></td>
-                        <td></td>
-                        <td id ="net" colspan="1" style="font-weight:bold;"> </td>
-                        <td><button type="button" class="btn btn-success" style="padding:5px 25px;"><i class="fa fa-check-circle"></i> Buy</button></td>
-                    </tr>
-                </tbody>
+          </div>
+          <div>
+            <a class="name" href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+            <div class="meta mt-1">Brand: {{ item.product.vendor }} · Seller: EpicOutlet Retail</div>
+            <div class="price-row mt-2">
+              {% if item.product.discount_percent %}<span class="price-old">₹{{ item.product.orginal_price|inr }}</span>{% endif %}
+              <span class="price">₹{{ item.product.selling_price|inr }}</span>
+              {% if item.product.discount_percent %}<span class="price-off">{{ item.product.discount_percent }}% Off</span>{% endif %}
+            </div>
+            {% if item.product.status %}
+              <div class="small text-danger fw-semibold mt-1">No longer available — please remove it</div>
+            {% elif item.product_qty > item.product.quantity %}
+              <div class="small text-danger fw-semibold mt-1">Only {{ item.product.quantity }} in stock — reduce the quantity</div>
+            {% elif item.product.is_low_stock %}
+              <div class="small text-danger mt-1">Only {{ item.product.quantity }} left</div>
+            {% else %}
+              <div class="small text-success mt-1">In stock</div>
+            {% endif %}
+            <div class="line-actions">
+              <button type="button" class="btn-link-plain" data-cart-remove="{% url 'save_for_later' item.id %}">Save for later</button>
+              <button type="button" class="btn-link-plain" data-cart-remove="{% url 'remove_cart' item.id %}">Remove</button>
+            </div>
+          </div>
+          <div class="text-end">
+            <div class="small text-muted-2">Subtotal</div>
+            <strong data-line-total="{{ item.id }}">₹{{ item.total_cost|inr }}</strong>
+          </div>
+        </div>
+        {% endfor %}
 
-            </table>
+        <div class="place-order-bar">
+          <a href="{% url 'checkout' %}" class="btn btn-buy btn-lg px-5 {% if summary.problems %}disabled{% endif %}" {% if summary.problems %}aria-disabled="true"{% endif %}>Place order</a>
+        </div>
+      </section>
     </div>
-</section>
-<script>
-    const nodes = document.querySelectorAll('.amt'); 
-    const arr = Array.from(nodes); 
-    const res = arr.reduce((acc, curr) => {
-        return acc + Number(curr.textContent); 
-    }, 0);
-    document.getElementById('net').textContent = `₹ ${res}`; 
-</script>
 
+    <div class="col-lg-4">
+      <aside class="cart-box price-details summary-card" aria-label="Price details">
+        <h2>Price details</h2>
+        <div class="inner">
+          <div class="summary-row"><span>Price ({{ summary.count }} item{{ summary.count|pluralize }})</span><span data-summary="subtotal">₹{{ summary.subtotal|inr }}</span></div>
+          <div class="summary-row"><span>Discount</span><span class="text-success">− <span data-summary="savings">₹{{ summary.savings|inr }}</span></span></div>
+          <div class="summary-row"><span>Delivery charges</span><span data-summary="shipping">{% if summary.shipping %}₹{{ summary.shipping|inr }}{% else %}Free{% endif %}</span></div>
+          <div class="summary-row total"><span>Total amount</span><span data-summary="total">₹{{ summary.total|inr }}</span></div>
+          {% if summary.savings %}<p class="save-line mb-0">You will save <span data-summary="savings">₹{{ summary.savings|inr }}</span> on this order</p>{% endif %}
+          {% if summary.problems %}<p class="small text-danger mt-2 mb-0">Fix the highlighted items to place your order.</p>{% endif %}
+        </div>
+      </aside>
+      <p class="secure-note mt-3 px-1"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Safe and secure payments. Easy returns. 100% authentic products.</p>
+    </div>
+  </div>
+  {% else %}
+  <div class="empty-state surface">
+    <div class="icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
+    <h1 class="h5">Your cart is empty!</h1>
+    <p class="text-muted-2">Add items to it now.</p>
+    <div class="d-flex justify-content-center gap-2">
+      <a href="{% url 'home' %}" class="btn btn-buy px-5">Shop now</a>
+      <a href="{% url 'fav_page' %}" class="btn btn-ghost">View wishlist</a>
+    </div>
+  </div>
+  {% endif %}
+</div>
 {% endblock content %}
-

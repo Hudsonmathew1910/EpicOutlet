@@ -1,0 +1,200 @@
+{% extends "admin/base_site.html" %}
+{% load shop_extras %}
+
+{% block title %}Sales dashboard | EpicOutlet Admin{% endblock %}
+{% block content_title %}<h1 class="m-0">Sales dashboard</h1>{% endblock %}
+{% block breadcrumbs %}
+<ol class="breadcrumb float-sm-right">
+  <li class="breadcrumb-item"><a href="{% url 'admin:index' %}"><i class="fas fa-tachometer-alt"></i> Home</a></li>
+  <li class="breadcrumb-item active">Sales dashboard</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<style>
+  .eo-bars { display: flex; align-items: flex-end; gap: 6px; height: 180px; padding-top: 10px; }
+  .eo-bar { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+  .eo-bar span.fill { width: 100%; background: linear-gradient(180deg, #6366f1, #4f46e5); border-radius: 6px 6px 0 0; min-height: 2px; }
+  .eo-bar small { font-size: 10px; color: #6c757d; margin-top: 4px; white-space: nowrap; }
+  .eo-staff-log { max-height: 340px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; font-size: .9rem; }
+  .eo-msg { padding: 6px 10px; border-radius: 10px; max-width: 92%; overflow-x: auto; }
+  .eo-msg.ai { background: rgba(108, 117, 125, .12); align-self: flex-start; }
+  .eo-msg.me { background: #4f46e5; color: #fff; align-self: flex-end; white-space: pre-wrap; }
+  .eo-msg table { font-size: .8rem; margin: 4px 0; }
+  .eo-msg th, .eo-msg td { padding: 2px 6px; border-bottom: 1px solid rgba(0, 0, 0, .1); }
+  .eo-msg p:last-child { margin-bottom: 0; }
+</style>
+
+<div class="row">
+  {% with s=stats %}
+  <div class="col-lg-3 col-6"><div class="small-box bg-primary"><div class="inner"><h3>₹{{ s.revenue|inr }}</h3><p>Revenue (paid orders)</p></div><div class="icon"><i class="fas fa-rupee-sign"></i></div><a href="{% url 'admin:shop_order_changelist' %}?payment_status__exact=paid" class="small-box-footer">View paid orders <i class="fas fa-arrow-circle-right"></i></a></div></div>
+  <div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h3>{{ s.paid_orders }}</h3><p>Paid orders</p></div><div class="icon"><i class="fas fa-receipt"></i></div><a href="{% url 'admin:shop_order_changelist' %}" class="small-box-footer">All orders <i class="fas fa-arrow-circle-right"></i></a></div></div>
+  <div class="col-lg-3 col-6"><div class="small-box bg-warning"><div class="inner"><h3>{{ s.to_fulfil }}</h3><p>Waiting to ship</p></div><div class="icon"><i class="fas fa-truck-loading"></i></div><a href="{% url 'admin:shop_order_changelist' %}?status__in=paid,processing" class="small-box-footer">Fulfil now <i class="fas fa-arrow-circle-right"></i></a></div></div>
+  <div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h3>{{ s.out_of_stock }}</h3><p>Products out of stock</p></div><div class="icon"><i class="fas fa-box-open"></i></div><a href="{% url 'admin:shop_product_changelist' %}?stock=out" class="small-box-footer">Restock <i class="fas fa-arrow-circle-right"></i></a></div></div>
+  {% endwith %}
+</div>
+
+<div class="row">
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-header"><h3 class="card-title">Revenue — last 14 days</h3></div>
+      <div class="card-body">
+        <div class="eo-bars" role="img" aria-label="Daily revenue for the last 14 days">
+          {% for d in chart %}
+          <div class="eo-bar" title="{{ d.day }}: ₹{{ d.revenue|inr }}">
+            <span class="fill" style="height: {{ d.revenue|percent_of:chart_max }}%"></span>
+            <small>{{ d.day }}</small>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h3 class="card-title">Recent orders</h3></div>
+      <div class="card-body p-0 table-responsive">
+        <table class="table table-hover mb-0">
+          <thead><tr><th>Order</th><th>Customer</th><th>Status</th><th>Payment</th><th class="text-right">Total</th></tr></thead>
+          <tbody>
+            {% for o in recent_orders %}
+            <tr>
+              <td><a href="{% url 'admin:shop_order_change' o.pk %}">{{ o.order_number }}</a><br><small class="text-muted">{{ o.created_at|date:"d M, H:i" }}</small></td>
+              <td>{{ o.full_name|default:o.user.username }}</td>
+              <td>{{ o.get_status_display }}</td>
+              <td>{{ o.get_payment_status_display }}</td>
+              <td class="text-right">₹{{ o.total|inr }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5" class="text-center text-muted">No orders yet.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="card card-primary card-outline">
+      <div class="card-header d-flex align-items-center">
+        <h3 class="card-title"><i class="fas fa-robot mr-1"></i> Staff assistant</h3>
+        <button type="button" class="btn btn-tool ml-auto" id="staffChatReset" title="New conversation"><i class="fas fa-redo"></i></button>
+      </div>
+      <div class="card-body p-2">
+        <div id="staffChatLog" class="eo-staff-log" aria-live="polite">
+          <div class="eo-msg ai">Ask me about sales, top sellers or stock, e.g. <em>"How did we do in the last 30 days?"</em> I'm read-only.</div>
+        </div>
+        <form id="staffChatForm" class="d-flex mt-2">
+          <label for="staffChatInput" class="sr-only">Ask the staff assistant</label>
+          <input id="staffChatInput" class="form-control form-control-sm mr-2" maxlength="500" autocomplete="off" placeholder="Ask about sales or stock…" required>
+          <button class="btn btn-primary btn-sm" id="staffChatSend" type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h3 class="card-title">At a glance</h3></div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between">Awaiting payment <strong>{{ stats.awaiting_payment }}</strong></li>
+        <li class="list-group-item d-flex justify-content-between">On hold (needs action) <strong class="{% if stats.on_hold %}text-danger{% endif %}">{{ stats.on_hold }}</strong></li>
+        <li class="list-group-item d-flex justify-content-between">Customers who ordered <strong>{{ stats.customers }}</strong></li>
+        <li class="list-group-item d-flex justify-content-between">Products in catalogue <strong>{{ stats.products }}</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h3 class="card-title">Top sellers</h3></div>
+      <ul class="list-group list-group-flush">
+        {% for p in top_products %}
+        <li class="list-group-item d-flex justify-content-between"><a href="{% url 'admin:shop_product_change' p.pk %}">{{ p.name|truncatechars:28 }}</a><span>{{ p.sold }} sold · ₹{{ p.revenue|inr }}</span></li>
+        {% empty %}
+        <li class="list-group-item text-muted">No sales yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h3 class="card-title">Low stock</h3></div>
+      <ul class="list-group list-group-flush">
+        {% for p in low_stock %}
+        <li class="list-group-item d-flex justify-content-between"><a href="{% url 'admin:shop_product_change' p.pk %}">{{ p.name|truncatechars:30 }}</a><span class="badge {% if p.quantity <= 0 %}badge-danger{% else %}badge-warning{% endif %}">{{ p.quantity }}</span></li>
+        {% empty %}
+        <li class="list-group-item text-muted">Everything is well stocked.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+{{ block.super }}
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+<script>
+(function () {
+  const log = document.getElementById('staffChatLog');
+  const form = document.getElementById('staffChatForm');
+  const input = document.getElementById('staffChatInput');
+  const send = document.getElementById('staffChatSend');
+  const url = "{% url 'staff_assistant_api' %}";
+  const csrf = "{{ csrf_token }}";
+
+  function add(text, who) {
+    const el = document.createElement('div');
+    el.className = 'eo-msg ' + who;
+    if (who === 'ai') {
+      el.innerHTML = DOMPurify.sanitize(marked.parse(text || ''), {
+        ALLOWED_TAGS: ['p', 'strong', 'em', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'br', 'code', 'a'],
+        ALLOWED_ATTR: ['href'],
+      });
+      el.querySelectorAll('a').forEach((a) => {
+        const href = a.getAttribute('href') || '';
+        if (!href.startsWith('/') || href.startsWith('//')) a.removeAttribute('href');
+      });
+    } else {
+      el.textContent = text;
+    }
+    log.appendChild(el);
+    log.scrollTop = log.scrollHeight;
+    return el;
+  }
+
+  async function post(body) {
+    const res = await fetch(url, {
+      method: 'POST', credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf, 'X-Requested-With': 'XMLHttpRequest' },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.reply || data.status || 'Something went wrong.');
+    return data;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const message = input.value.trim();
+    if (!message) return;
+    add(message, 'me');
+    input.value = '';
+    send.disabled = true;
+    const thinking = add('Thinking…', 'ai');
+    try {
+      const data = await post({ message });
+      thinking.remove();
+      add(data.reply, 'ai');
+    } catch (err) {
+      thinking.remove();
+      add(err.message, 'ai');
+    } finally {
+      send.disabled = false;
+      input.focus();
+    }
+  });
+
+  document.getElementById('staffChatReset').addEventListener('click', async () => {
+    await post({ reset: true }).catch(() => {});
+    log.querySelectorAll('.eo-msg').forEach((m, i) => { if (i > 0) m.remove(); });
+  });
+})();
+</script>
+{% endblock %}

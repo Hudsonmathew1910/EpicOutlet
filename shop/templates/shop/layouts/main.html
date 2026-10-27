@@ -1,26 +1,63 @@
-{% load static %}
-<!doctype html>
+{% load static %}<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="images/png" href="{% static "images/EP2.png" %}">
-    <title>
-        {% block title %}
-        {% endblock title %}
-    </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}EpicOutlet | Online Shopping{% endblock title %}</title>
+    <meta name="description" content="{% block meta_description %}Shop mobiles, electronics, fashion, home essentials and groceries at EpicOutlet. Great prices, fast delivery and an AI shopping assistant.{% endblock %}">
+    <meta name="theme-color" content="#0f2b4f">
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+    {% block robots %}{% endblock %}
+    <meta property="og:site_name" content="EpicOutlet">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}EpicOutlet | Online Shopping{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Great deals on mobiles, electronics, fashion, home and grocery.{% endblock %}">
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+    <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/1.jpg' %}{% endblock %}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="{% static 'images/EP2.png' %}">
+
+    <link rel="preconnect" href="https://res.cloudinary.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block head %}{% endblock head %}
   </head>
-  <body style="background-color: #C9D6DF;">
+  <body id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
     {% include "shop/inc/navbar.html" %}
-    {% block content %}{% endblock content %}
-    {% block script %}{% endblock script %}
+
+    <main id="main" tabindex="-1" class="{% block main_class %}{% endblock %}">
+      {% block content %}{% endblock content %}
+    </main>
+
     {% include "shop/inc/footer.html" %}
+
+    {% block chat_fab %}
+    <a href="{% url 'chat' %}" class="chat-fab" aria-label="Open the EpicBot shopping assistant">
+      <i class="fa-solid fa-robot" aria-hidden="true"></i><span>Ask EpicBot</span>
+    </a>
+    {% endblock %}
+
+    <div class="toast-stack" id="toastStack" role="status" aria-live="polite"></div>
+    {% include "shop/inc/message.html" %}
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.iconly.ai/iconly/public/iconly.js"></script>
+    <script>
+      window.EO = {
+        csrf: "{{ csrf_token }}",
+        isAuth: {{ request.user.is_authenticated|yesno:"true,false" }},
+        loginUrl: "{% url 'login' %}",
+        urls: {
+          addToCart: "{% url 'addtocart' %}",
+          updateCart: "{% url 'update_cart' %}",
+          wishlist: "{% url 'fav' %}",
+          cart: "{% url 'cart' %}",
+          suggest: "{% url 'search_suggest' %}"
+        }
+      };
+    </script>
+    <script src="{% static 'js/app.js' %}"></script>
+    {% block script %}{% endblock script %}
   </body>
 </html>

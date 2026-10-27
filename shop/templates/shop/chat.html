@@ -1,201 +1,246 @@
 {% extends "shop/layouts/main.html" %}
-{% block title %}
-EpicOutlet | AI Assistant
-{% endblock title %}
+
+{% block title %}EpicBot – AI Shopping Assistant | EpicOutlet{% endblock title %}
+{% block meta_description %}Ask EpicBot, EpicOutlet's AI shopping assistant, to find products, compare prices and track your orders.{% endblock %}
+{% block chat_fab %}{% endblock %}
 
 {% block content %}
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <section class="surface chat-shell" aria-labelledby="chat-title">
+        <div class="chat-head">
+          <span class="chat-avatar"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
+          <div class="flex-grow-1">
+            <h1 id="chat-title" class="h5 mb-0">EpicBot</h1>
+            <span class="small text-muted-2">AI shopping agent · finds &amp; compares products, manages your cart, tracks orders</span>
+          </div>
+          <button type="button" class="btn btn-sm btn-ghost" id="chatReset" title="Start a new conversation"><i class="fa-solid fa-rotate-right me-1" aria-hidden="true"></i>New chat</button>
+        </div>
 
-<!-- Include Marked.js for Markdown parsing -->
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-<style>
-/* Add simple styling for markdown tables */
-.ai-message table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; color: #212529; }
-.ai-message th, .ai-message td { padding: 0.75rem; vertical-align: top; border-top: 1px solid #dee2e6; }
-.ai-message thead th { vertical-align: bottom; border-bottom: 2px solid #dee2e6; background-color: rgba(0,0,0,0.05); }
-.message-content a { 
-    color: #212529; 
-    text-decoration: none; 
-    font-weight: 600;
-    transition: color 0.2s ease-in-out;
-}
-.message-content a:hover {
-    color: #0d6efd;
-    text-decoration: underline;
-}
-#margin-shop{
-    margin-bottom:80px;
-    margin-top:80px;
-}
-
-@media (max-width: 768px) {
-    #margin-shop{
-        margin-bottom:80px;
-        margin-top:80px;
-    }
-    .chat-card{
-        height: 500px;
-    }
-    
-  .ai-message table,
-  .ai-message thead,
-  .ai-message tbody,
-  .ai-message th,
-  .ai-message td,
-  .ai-message tr {
-    display: block;
-    width: 100%;
-  }
-
-  .ai-message thead {
-    display: none; /* hide table header */
-  }
-
-  .ai-message tr {
-    margin-bottom: 1rem;
-    border: 1px solid #dee2e6;
-    border-radius: 6px;
-    padding: 0.5rem;
-  }
-
-  .ai-message td {
-    border: none;
-    border-bottom: 1px solid #eee;
-    padding: 0.5rem 0;
-    text-align: left;
-  }
-
-  .ai-message td:last-child {
-    border-bottom: none;
-  }
-
-  /* Show label before each cell */
-  .ai-message td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.25rem;
-  }
-}
-</style>
-
-<div class="container" id="margin-shop">
-    
-    <h1 class="mb-4 text-center">EpicOutlet AI Assistant</h1>
-
-    <div class="card shadow-lg chat-card">
-        <div class="card-body chat-body" id="chatBody">
-
-            <!-- Welcome Message -->
-            <div class="chat-message ai-message">
-                <div class="message-content">
-                    👋 Hi! I'm your EpicOutlet assistant.  
-                    Ask me about products, trends, vendors or deals!
-                </div>
+        <div class="chat-body" id="chatBody" aria-live="polite" aria-relevant="additions">
+          <div class="chat-message ai-message">
+            <div class="message-content">
+              <p class="mb-2">👋 Hi{% if request.user.is_authenticated %} {{ request.user.first_name|default:request.user.username }}{% endif %}! I'm EpicBot. I can find and compare products, show deals and reviews, add things to your cart, and track your orders.</p>
+              <div class="chat-suggestions">
+                <button type="button" class="chip" data-suggestion>Phones under ₹20000</button>
+                <button type="button" class="chip" data-suggestion>Today's best deals</button>
+                <button type="button" class="chip" data-suggestion>Compare the two cheapest Samsung phones</button>
+                <button type="button" class="chip" data-suggestion>What's in my cart?</button>
+                <button type="button" class="chip" data-suggestion>When will my order arrive?</button>
+                <button type="button" class="chip" data-suggestion>What is your return policy?</button>
+              </div>
             </div>
-
+          </div>
         </div>
 
-        <div class="card-footer chat-footer">
-            <form id="chatForm" class="d-flex gap-2">
-                <input 
-                    type="text" 
-                    id="userInput" 
-                    class="form-control chat-input"
-                    placeholder="Ask something..."
-                    required
-                >
-                <button type="submit" class="btn pro-but px-4">
-                    <i class="fa fa-paper-plane"></i>
-                </button>
-            </form>
+        <div class="chat-foot">
+          <form id="chatForm" class="d-flex gap-2">
+            <label for="userInput" class="visually-hidden">Message EpicBot</label>
+            <input type="text" id="userInput" class="form-control" placeholder="Ask about products, prices or orders…" maxlength="500" autocomplete="off" required>
+            <button type="submit" class="btn btn-primary px-4" id="sendBtn" aria-label="Send message"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+          </form>
         </div>
+      </section>
+      <p class="small text-muted-2 text-center mt-3">EpicBot only uses EpicOutlet's live catalogue. It changes your cart only when you ask, and never asks for payment details.</p>
     </div>
-
+  </div>
 </div>
-
-<script>
-const chatForm = document.getElementById("chatForm");
-const userInput = document.getElementById("userInput");
-const chatBody = document.getElementById("chatBody");
-
-// Auto scroll
-function scrollToBottom() {
-    chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-// Create message element
-function createMessage(content, type) {
-    const messageDiv = document.createElement("div");
-    messageDiv.classList.add("chat-message", type === "user" ? "user-message" : "ai-message");
-
-    const messageContent = document.createElement("div");
-    messageContent.classList.add("message-content");
-    
-    if (type === "ai") {
-        // Parse markdown content from the AI 
-        messageContent.innerHTML = marked.parse(content);
-    } else {
-        // Plain text for user (escape to prevent XSS)
-        messageContent.innerText = content;
-    }
-
-    messageDiv.appendChild(messageContent);
-    chatBody.appendChild(messageDiv);
-    scrollToBottom();
-}
-
-// Typing animation
-function showTyping() {
-    const typingDiv = document.createElement("div");
-    typingDiv.classList.add("chat-message", "ai-message");
-    typingDiv.setAttribute("id", "typingIndicator");
-
-    typingDiv.innerHTML = `
-        <div class="message-content typing">
-            <span></span><span></span><span></span>
-        </div>
-    `;
-
-    chatBody.appendChild(typingDiv);
-    scrollToBottom();
-}
-
-function removeTyping() {
-    const typing = document.getElementById("typingIndicator");
-    if (typing) typing.remove();
-}
-
-chatForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const message = userInput.value.trim();
-    if (!message) return;
-
-    createMessage(message, "user");
-    userInput.value = "";
-
-    showTyping();
-
-    // Replace this fetch URL with your Django backend endpoint
-    fetch("/ai-chat/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": "{{ csrf_token }}"
-        },
-        body: JSON.stringify({ message: message })
-    })
-    .then(response => response.json())
-    .then(data => {
-        removeTyping();
-        createMessage(data.reply, "ai");
-    })
-    .catch(error => {
-        removeTyping();
-        createMessage("❗ Something went wrong. Please try again.", "ai");
-    });
-});
-</script>
-
 {% endblock content %}
+
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+<script>
+(function () {
+  const chatForm = document.getElementById('chatForm');
+  const userInput = document.getElementById('userInput');
+  const chatBody = document.getElementById('chatBody');
+  const sendBtn = document.getElementById('sendBtn');
+  let busy = false;
+
+  const scrollToBottom = () => { chatBody.scrollTop = chatBody.scrollHeight; };
+
+  // Only same-site links survive; everything else becomes plain text.
+  DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+    if (node.tagName === 'A') {
+      const href = node.getAttribute('href') || '';
+      if (!href.startsWith('/') || href.startsWith('//')) node.removeAttribute('href');
+    }
+  });
+
+  function createMessage(content, type) {
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-message ' + (type === 'user' ? 'user-message' : 'ai-message');
+    const box = document.createElement('div');
+    box.className = 'message-content';
+    if (type === 'ai') {
+      box.innerHTML = DOMPurify.sanitize(marked.parse(content || ''), { ALLOWED_TAGS: ['p', 'strong', 'em', 'a', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'br', 'code', 'h3', 'h4'], ALLOWED_ATTR: ['href'] });
+    } else {
+      box.textContent = content;
+    }
+    wrap.appendChild(box);
+    chatBody.appendChild(wrap);
+    scrollToBottom();
+  }
+
+
+  // Keep the navbar in sync when EpicBot changes the cart or wishlist.
+  function applyActions(actions) {
+    if (actions.cart_count !== undefined) EO.setCartCount(actions.cart_count);
+    if (actions.wishlist_count !== undefined) {
+      document.querySelectorAll('[data-wishlist-count]').forEach((el) => {
+        el.dataset.count = actions.wishlist_count;
+        el.textContent = actions.wishlist_count > 0 ? actions.wishlist_count : '';
+      });
+    }
+  }
+
+  // Live "what EpicBot is doing" panel ------------------------------------------------
+  function createStepsPanel() {
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-message ai-message';
+    const panel = document.createElement('div');
+    panel.className = 'agent-steps';
+    panel.setAttribute('role', 'status');
+    panel.setAttribute('aria-live', 'polite');
+    const title = document.createElement('div');
+    title.className = 'agent-title';
+    title.innerHTML = '<span class="typing" aria-hidden="true"><span></span><span></span><span></span></span>';
+    const titleText = document.createElement('span');
+    titleText.textContent = 'EpicBot is working on it';
+    title.appendChild(titleText);
+    const list = document.createElement('ol');
+    panel.append(title, list);
+    wrap.appendChild(panel);
+    chatBody.appendChild(wrap);
+    scrollToBottom();
+    return { wrap, panel, list, steps: {}, started: performance.now() };
+  }
+
+  const ICONS = { done: '<i class="fa-solid fa-check" aria-hidden="true"></i>', failed: '<i class="fa-solid fa-xmark" aria-hidden="true"></i>' };
+
+  function renderStep(ui, ev) {
+    let li = ui.steps[ev.id];
+    if (!li) {
+      li = document.createElement('li');
+      li.innerHTML = '<span class="st"></span><span class="txt"><span class="label"></span></span>';
+      ui.steps[ev.id] = li;
+      ui.list.appendChild(li);
+    }
+    li.className = ev.state || 'running';
+    li.dataset.kind = ev.kind || li.dataset.kind || 'tool';
+    li.querySelector('.st').innerHTML = ICONS[ev.state] || '';
+    if (ev.label) li.querySelector('.label').textContent = ev.label;
+    const txt = li.querySelector('.txt');
+    if (ev.detail) {
+      let detail = txt.querySelector('.detail');
+      if (!detail) { detail = document.createElement('span'); detail.className = 'detail'; txt.appendChild(detail); }
+      detail.textContent = ev.detail;
+    }
+    if (ev.products && ev.products.length) {
+      let found = txt.querySelector('.found');
+      if (!found) { found = document.createElement('span'); found.className = 'found'; txt.appendChild(found); }
+      found.innerHTML = '';
+      ev.products.forEach((p) => {
+        if (!p.url || !p.url.startsWith('/') || p.url.startsWith('//')) return;
+        const a = document.createElement('a');
+        a.href = p.url;
+        a.textContent = p.name;
+        found.appendChild(a);
+      });
+    }
+    scrollToBottom();
+  }
+
+  function collapseSteps(ui) {
+    const items = Object.values(ui.steps);
+    if (!items.length) { ui.wrap.remove(); return; }
+    const toolSteps = items.filter((li) => li.dataset.kind !== 'think').length;
+    const secs = ((performance.now() - ui.started) / 1000).toFixed(1);
+    const details = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.innerHTML = '<i class="fa-solid fa-list-check" aria-hidden="true"></i>';
+    summary.append(` ${toolSteps} store lookup${toolSteps === 1 ? '' : 's'} · ${secs}s — show steps`);
+    details.append(summary, ui.list);
+    ui.panel.innerHTML = '';
+    ui.panel.classList.add('collapsed');
+    ui.panel.removeAttribute('aria-live');
+    ui.panel.appendChild(details);
+  }
+
+  async function streamChat(message, ui) {
+    const res = await fetch("{% url 'ai_chat_api' %}", {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/x-ndjson',
+        'X-CSRFToken': EO.csrf,
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+      body: JSON.stringify({ message }),
+    });
+    const type = res.headers.get('Content-Type') || '';
+    if (!type.includes('ndjson') || !res.body) {
+      // Plain JSON: rate limit, validation errors, or a proxy that buffers streams.
+      const data = await res.json().catch(() => ({}));
+      return { reply: data.reply || 'Something went wrong. Please try again.', actions: data.actions || {} };
+    }
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    let final = null;
+    while (true) {
+      const { value, done } = await reader.read();
+      if (value) buffer += decoder.decode(value, { stream: true });
+      let nl;
+      while ((nl = buffer.indexOf('\n')) >= 0) {
+        const line = buffer.slice(0, nl).trim();
+        buffer = buffer.slice(nl + 1);
+        if (!line) continue;
+        let ev;
+        try { ev = JSON.parse(line); } catch (e) { continue; }
+        if (ev.type === 'step') renderStep(ui, ev);
+        else if (ev.type === 'reply') final = ev;
+      }
+      if (done) break;
+    }
+    return final || { reply: 'The connection was interrupted. Please try again.' };
+  }
+
+  async function send(message) {
+    if (busy || !message) return;
+    busy = true;
+    sendBtn.disabled = true;
+    createMessage(message, 'user');
+    userInput.value = '';
+    const ui = createStepsPanel();
+    try {
+      const data = await streamChat(message, ui);
+      collapseSteps(ui);
+      createMessage(data.reply, 'ai');
+      applyActions(data.actions || {});
+    } catch (err) {
+      collapseSteps(ui);
+      createMessage('❗ Something went wrong. Please try again.', 'ai');
+    } finally {
+      busy = false;
+      sendBtn.disabled = false;
+      userInput.focus();
+    }
+  }
+
+  chatForm.addEventListener('submit', (e) => { e.preventDefault(); send(userInput.value.trim()); });
+  chatBody.addEventListener('click', (e) => {
+    const chip = e.target.closest('[data-suggestion]');
+    if (chip) send(chip.textContent.trim());
+  });
+  document.getElementById('chatReset').addEventListener('click', async () => {
+    await EO.post("{% url 'chat_reset' %}", {}).catch(() => {});
+    chatBody.querySelectorAll('.chat-message').forEach((m, i) => { if (i > 0) m.remove(); });
+    EO.toast('Started a new conversation', 'info');
+  });
+})();
+</script>
+{% endblock script %}

@@ -1,32 +1,64 @@
 {% extends "shop/layouts/main.html" %}
-{% load static %}
+{% load shop_extras %}
 
-{% block title %}
-Profile | EpicOutlet
-{% endblock title %}
+{% block title %}My Account | EpicOutlet{% endblock title %}
+{% block robots %}<meta name="robots" content="noindex">{% endblock %}
 
 {% block content %}
-<div class="container" id="margin-shop" style="margin-bottom:80px; margin-top: 100px;">
-    {% include "shop/inc/message.html" %}
-  <div class="row justify-content-center">
-    <div class="col-md-6 col-lg-5">
-      <div class="card my-4 shadow-sm text-center img-hover-shadow" style="background-color: #F0F5F9; border-radius: 10px;">
-        <div class="card-body">
-
-          <img src="{{ profile_url }}" alt="User Avatar" class="rounded-circle" width="100" height="100" style="border: 2px solid #ffffffff; box-shadow: 1px 1px 5px grey; border-radius: 50%;">
-
-          <h4 class="card-title text-primary mb-1">{{ request.user.username }}</h4>
-          <p class="text-muted">{{ request.user.email }}</p>
-          
-          <div class="d-grid gap-2 mt-3">
-            <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="{% url "fav_page" %}" class="btn btn-primary"><i class="fa fa-thumbs-up"></i> Favourite</a>
-            <a href="{% url "cart" %}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Cart</a>
-            </div>
-            <a href="{% url 'logout' %}" class="btn btn-outline-danger"><i class="fa fa-sign-out"></i> Logout</a>
-        </div>
+<div class="container">
+  <header class="page-head"><h1>My account</h1></header>
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <div class="surface p-4 text-center">
+        <img src="{{ profile_url }}" alt="" class="rounded-circle mb-3" width="96" height="96">
+        <h2 class="h5 mb-0">{{ request.user.get_full_name|default:request.user.username }}</h2>
+        <p class="text-muted-2 small">@{{ request.user.username }} · member since {{ request.user.date_joined|date:"M Y" }}</p>
+        <div class="d-grid gap-2">
+          <a href="{% url 'orders' %}" class="btn btn-ghost text-start"><i class="fa-solid fa-box me-2" aria-hidden="true"></i>My orders <span class="badge text-bg-light float-end">{{ order_count }}</span></a>
+          <a href="{% url 'fav_page' %}" class="btn btn-ghost text-start"><i class="fa-regular fa-heart me-2" aria-hidden="true"></i>Wishlist <span class="badge text-bg-light float-end">{{ wishlist_count }}</span></a>
+          <a href="{% url 'cart' %}" class="btn btn-ghost text-start"><i class="fa-solid fa-bag-shopping me-2" aria-hidden="true"></i>Cart <span class="badge text-bg-light float-end">{{ cart_count }}</span></a>
+          <a href="{% url 'password_change' %}" class="btn btn-ghost text-start"><i class="fa-solid fa-key me-2" aria-hidden="true"></i>Change password</a>
+          <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+            <button type="submit" class="btn btn-ghost text-danger w-100 text-start"><i class="fa-solid fa-arrow-right-from-bracket me-2" aria-hidden="true"></i>Log out</button>
+          </form>
         </div>
       </div>
+    </div>
+
+    <div class="col-lg-8">
+      <section class="surface p-4 mb-4" aria-labelledby="details-title">
+        <h2 id="details-title" class="h5 mb-3">Personal details</h2>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          <div class="row g-3">
+            {% for field in form %}
+            <div class="{% if field.name == 'email' %}col-12{% else %}col-md-6{% endif %}">
+              <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+              {{ field }}
+              {% if field.errors %}<ul class="errorlist">{% for e in field.errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">Save changes</button>
+        </form>
+      </section>
+
+      <section class="surface overflow-hidden" aria-labelledby="recent-title">
+        <div class="d-flex justify-content-between align-items-center p-4 pb-2">
+          <h2 id="recent-title" class="h5 mb-0">Recent orders</h2>
+          <a href="{% url 'orders' %}" class="fw-semibold small">View all</a>
+        </div>
+        {% for order in recent_orders %}
+        <a href="{{ order.get_absolute_url }}" class="order-row">
+          <div><div class="fw-bold">{{ order.order_number }}</div><div class="small text-muted-2">{{ order.created_at|date:"d M Y" }}</div></div>
+          <div class="small text-muted-2 hide-sm">{{ order.item_count }} item{{ order.item_count|pluralize }}</div>
+          <div class="hide-sm"><span class="status-pill status-{{ order.status }}">{{ order.get_status_display }}</span></div>
+          <div class="fw-bold text-end">₹{{ order.total|inr }}</div>
+        </a>
+        {% empty %}
+        <p class="text-muted-2 px-4 pb-4 mb-0">No orders yet.</p>
+        {% endfor %}
+      </section>
     </div>
   </div>
 </div>

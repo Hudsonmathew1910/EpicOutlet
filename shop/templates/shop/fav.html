@@ -1,55 +1,36 @@
 {% extends "shop/layouts/main.html" %}
+{% load shop_extras %}
 
-{% block title %}
- Favourite | EpicOutlet
-{% endblock title  %}
+{% block title %}Wishlist | EpicOutlet{% endblock title %}
+{% block robots %}<meta name="robots" content="noindex">{% endblock %}
 
 {% block content %}
-<section class="py-4 my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h4 class="mb-3">Favourite</h4>
-                {% comment %} <hr style="broder-color: white;"> {% endcomment %}
-            </div>
-            {% if favitm %}
-            <table class="table table-striped-columns tab">
-                <thead>
-                    <tr>
-                    {% comment %} <th scope="col">Id</th> {% endcomment %}
-                    <th style="width: 50px;" scope="col">Product</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Trash</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in favitm %}
-                    <tr>
-                        {% comment %} <th scope="row">{{ item.product_id }}</th> {% endcomment %}
-                        <td>
-                            <a href="{% url 'product_view' item.product.catagory.name item.product.name %}">
-                            <img src="{{ item.product.product_image.url }}" class="img-fluid rounded" style="height: 75px; width: 75px; object-fit: cover;" alt="{{ item.product.name }}">
-                        </a>
-                        </td>
-                        <td>
-                            <a href="{% url 'product_view' item.product.catagory.name item.product.name %}" class="text-decoration-none text-dark">
-                            <strong>{{ item.product }}</strong>
-                            </a>
-                            <br> Partner - {{ item.product.vendor }} </td>
-                        <td class="amt"><strong>₹ {{ item.product.selling_price }}</strong></td>
-                        <td><a href="{% url "remove_fav" item.id %}" type="button" onclick="return confirm('Are you sure to Remove?')" class="btn btn-danger"><i class="fa fa-trash"></i> Remove</a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            {% else %}
-            <p class="text-center py-3">You haven't added any favorite product</p>
-            {% endif %}
+<div class="container">
+  <header class="page-head">
+    <h1>Wishlist</h1>
+    {% if favitm %}<p class="text-muted-2 mb-0">{{ favitm|length }} saved item{{ favitm|length|pluralize }}</p>{% endif %}
+  </header>
+
+  {% if favitm %}
+  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4">
+    {% for fav_item in favitm %}
+    {% with item=fav_item.product %}
+    <div class="col d-flex flex-column gap-2">
+      {% include "shop/inc/product_card.html" %}
+      <form method="post" action="{% url 'remove_fav' fav_item.id %}">{% csrf_token %}
+        <button type="submit" class="btn btn-sm btn-ghost w-100"><i class="fa-regular fa-trash-can me-1" aria-hidden="true"></i>Remove</button>
+      </form>
     </div>
-</section>
-<section style="padding-bottom:100px;">
-</section>
-
+    {% endwith %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state surface">
+    <div class="icon"><i class="fa-regular fa-heart" aria-hidden="true"></i></div>
+    <h2 class="h4">No saved items yet</h2>
+    <p class="text-muted-2">Tap the heart on any product to save it for later.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Explore products</a>
+  </div>
+  {% endif %}
+</div>
 {% endblock content %}
-

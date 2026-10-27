@@ -1,0 +1,43 @@
+{% extends "shop/layouts/main.html" %}
+{% load shop_extras %}
+
+{% block title %}My Orders | EpicOutlet{% endblock title %}
+{% block robots %}<meta name="robots" content="noindex">{% endblock %}
+
+{% block content %}
+<div class="container">
+  <header class="page-head">
+    <h1>My orders</h1>
+    <p class="text-muted-2 mb-0">Track deliveries and view past purchases.</p>
+  </header>
+
+  {% if orders %}
+  <div class="surface overflow-hidden">
+    {% for order in orders %}
+    <a href="{{ order.get_absolute_url }}" class="order-row">
+      <div>
+        <div class="fw-bold">{{ order.order_number }}</div>
+        <div class="small text-muted-2">{{ order.created_at|date:"d M Y, h:i A" }}</div>
+      </div>
+      <div class="small text-muted-2 hide-sm">
+        {% for item in order.items.all|slice:":2" %}{{ item.product_name }}{% if not forloop.last %}, {% endif %}{% endfor %}{% if order.items.all|length > 2 %} +{{ order.items.all|length|add:"-2" }} more{% endif %}
+      </div>
+      <div class="hide-sm"><span class="status-pill status-{{ order.status }}">{{ order.get_status_display }}</span></div>
+      <div class="text-end">
+        <div class="fw-bold">₹{{ order.total|inr }}</div>
+        <span class="status-pill status-{{ order.status }} d-md-none mt-1">{{ order.get_status_display }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% include "shop/inc/pagination.html" %}
+  {% else %}
+  <div class="empty-state surface">
+    <div class="icon"><i class="fa-solid fa-box" aria-hidden="true"></i></div>
+    <h2 class="h4">No orders yet</h2>
+    <p class="text-muted-2">When you place an order, you can track it here.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Start shopping</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}

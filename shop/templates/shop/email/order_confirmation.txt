@@ -1,0 +1,16 @@
+{% load shop_extras %}Hi {{ order.full_name }},
+
+Thank you for shopping with EpicOutlet! Your payment was received and order {{ order.order_number }} is confirmed.
+
+{% for item in order.items.all %}- {{ item.product_name }} x {{ item.quantity }}: Rs. {{ item.line_total|inr }}
+{% endfor %}
+Subtotal: Rs. {{ order.subtotal|inr }}
+Delivery: {% if order.shipping_fee %}Rs. {{ order.shipping_fee|inr }}{% else %}Free{% endif %}
+Total paid: Rs. {{ order.total|inr }}
+
+Delivering to:
+{{ order.full_name }}, {{ order.address_line1 }}{% if order.address_line2 %}, {{ order.address_line2 }}{% endif %}, {{ order.city }}, {{ order.state }} {{ order.pincode }}
+
+You can track your order any time from "My orders" on EpicOutlet.
+
+— Team EpicOutlet

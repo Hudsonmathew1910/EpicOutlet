@@ -1,0 +1,149 @@
+{% extends "shop/layouts/main.html" %}
+{% load shop_extras %}
+
+{% block title %}{% if category %}{{ category.name }} – Buy {{ category.name }} Online at Best Prices | EpicOutlet{% elif filters.search %}{{ filters.search }} – Search results | EpicOutlet{% else %}Shop all products | EpicOutlet{% endif %}{% endblock title %}
+{% block meta_description %}{% if category %}{{ category.description|truncatechars:155 }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block robots %}{% if filters.search or active_filter_count or page_obj.number > 1 %}<meta name="robots" content="noindex,follow">{% endif %}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="listing">
+    <aside class="filter-panel" aria-label="Filters" id="filterPanel">
+      <div class="fp-head">
+        <h2>Filters</h2>
+        <div class="d-flex gap-2 align-items-center">
+          {% if active_filter_count %}<a href="{% if category %}{{ category.get_absolute_url }}{% else %}{% url 'home' %}{% endif %}{% if filters.search %}?search={{ filters.search|urlencode }}{% endif %}" class="btn-link-plain small" style="color:var(--eo-link)">Clear all</a>{% endif %}
+          <button type="button" class="btn btn-ghost btn-sm d-lg-none" data-filter-toggle aria-controls="filterPanel" aria-expanded="false"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Show</button>
+        </div>
+      </div>
+      <form method="get" class="fp-body" id="filterForm">
+        {% if filters.search %}<input type="hidden" name="search" value="{{ filters.search }}">{% endif %}
+        {% if filters.sort %}<input type="hidden" name="sort" value="{{ filters.sort }}">{% endif %}
+
+        {% if not category %}
+        <div class="fp-section">
+          <h3>Categories</h3>
+          <a class="fp-opt {% if not filters.category %}active{% endif %}" href="{% query_with category=None %}">All categories</a>
+          {% for cat in categories %}
+          <a class="fp-opt {% if filters.category|lower == cat.name|lower %}active{% endif %}" href="{% query_with category=cat.name %}"><i class="fa-solid fa-angle-right small me-1 text-muted-2" aria-hidden="true"></i>{{ cat.name }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="fp-section">
+          <h3>Price</h3>
+          {% for low, high in price_buckets %}
+          <a class="fp-opt {% if filters.min_price == low and filters.max_price == high %}active{% endif %}" href="{% query_with 'min_price' low 'max_price' high %}">
+            {% if not low %}Under ₹{{ high|add:1|inr }}{% elif not high %}Over ₹{{ low|inr }}{% else %}₹{{ low|inr }} – ₹{{ high|add:1|inr }}{% endif %}
+          </a>
+          {% endfor %}
+          <div class="price-inputs mt-2">
+            <label class="visually-hidden" for="f-min">Minimum price</label>
+            <input id="f-min" class="form-control" type="number" min="0" name="min_price" placeholder="Min" value="{{ filters.min_price|default_if_none:'' }}">
+            <span class="text-muted-2">to</span>
+            <label class="visually-hidden" for="f-max">Maximum price</label>
+            <input id="f-max" class="form-control" type="number" min="0" name="max_price" placeholder="Max" value="{{ filters.max_price|default_if_none:'' }}">
+            <button type="submit" class="btn btn-ghost btn-sm">Go</button>
+          </div>
+        </div>
+
+        {% if vendors %}
+        <div class="fp-section">
+          <h3>Brand</h3>
+          <div class="fp-scroll">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="vendor" id="v-all" value="" {% if not filters.vendor %}checked{% endif %} data-autosubmit>
+              <label class="form-check-label" for="v-all">All brands</label>
+            </div>
+            {% for ven in vendors %}
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="vendor" id="v-{{ forloop.counter }}" value="{{ ven }}" {% if filters.vendor == ven %}checked{% endif %} data-autosubmit>
+              <label class="form-check-label" for="v-{{ forloop.counter }}">{{ ven }}</label>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="fp-section">
+          <h3>Availability</h3>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="in_stock" value="1" id="f-stock" {% if filters.in_stock %}checked{% endif %} data-autosubmit>
+            <label class="form-check-label" for="f-stock">Exclude out of stock</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="trending" value="1" id="f-trending" {% if filters.trending %}checked{% endif %} data-autosubmit>
+            <label class="form-check-label" for="f-trending">Bestsellers only</label>
+          </div>
+        </div>
+        {% if filters.category and not category %}<input type="hidden" name="category" value="{{ filters.category }}">{% endif %}
+      </form>
+    </aside>
+
+    <section class="results" aria-labelledby="results-title">
+      <div class="results-head">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            {% if category %}<li class="breadcrumb-item active" aria-current="page">{{ category.name }}</li>
+            {% else %}<li class="breadcrumb-item active" aria-current="page">{% if filters.search %}Search{% else %}All products{% endif %}</li>{% endif %}
+          </ol>
+        </nav>
+        <h1 id="results-title">{{ heading }}</h1>
+        {% if filters.corrections %}
+        <p class="mb-1 small">Showing results for
+          {% for typed, fixed in filters.corrections.items %}<strong class="text-primary">{{ fixed }}</strong>{% if not forloop.last %}, {% endif %}{% endfor %}
+          <span class="text-muted-2">— you searched for “{{ filters.search }}”</span></p>
+        {% endif %}
+        <p class="result-meta mb-1">
+          {% if page_obj.paginator.count %}Showing {{ page_obj.start_index }}–{{ page_obj.end_index }} of {{ page_obj.paginator.count }} result{{ page_obj.paginator.count|pluralize }}{% else %}No results{% endif %}
+        </p>
+        <div class="sort-tabs" role="navigation" aria-label="Sort products">
+          <span>Sort by</span>
+          {% for key, label in sort_labels %}
+          <a href="{% query_with sort=key %}" class="{% if filters.sort == key or not filters.sort and key == 'popular' %}active{% endif %}" {% if filters.sort == key or not filters.sort and key == 'popular' %}aria-current="true"{% endif %}>{{ label }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if active_filter_count %}
+      <div class="applied" aria-label="Applied filters">
+        {% if filters.category and not category %}<a href="{% query_with category=None %}">{{ filters.category }} <i class="fa-solid fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Remove</span></a>{% endif %}
+        {% if filters.vendor %}<a href="{% query_with vendor=None %}">{{ filters.vendor }} <i class="fa-solid fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Remove</span></a>{% endif %}
+        {% if filters.min_price is not None or filters.max_price is not None %}<a href="{% query_with min_price=None max_price=None %}">₹{{ filters.min_price|default:0|inr }} – {% if filters.max_price is not None %}₹{{ filters.max_price|inr }}{% else %}any{% endif %} <i class="fa-solid fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Remove</span></a>{% endif %}
+        {% if filters.in_stock %}<a href="{% query_with in_stock=None %}">In stock <i class="fa-solid fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Remove</span></a>{% endif %}
+        {% if filters.trending %}<a href="{% query_with trending=None %}">Bestsellers <i class="fa-solid fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Remove</span></a>{% endif %}
+      </div>
+      {% endif %}
+
+      {% if products %}
+      <div class="product-grid">
+        {% for item in products %}{% include "shop/inc/product_card.html" %}{% endfor %}
+      </div>
+      <div class="py-3">{% include "shop/inc/pagination.html" %}</div>
+      {% else %}
+      <div class="empty-state">
+        <div class="icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
+        <h2 class="h5">Sorry, no results found{% if filters.search %} for “{{ filters.search }}”{% endif %}</h2>
+        <p class="text-muted-2">Check the spelling, try a more general term, or remove some filters.</p>
+        <div class="d-flex justify-content-center gap-2">
+          <a href="{% url 'home' %}" class="btn btn-ghost">Back to home</a>
+          <a href="{% url 'chat' %}" class="btn btn-primary"><i class="fa-solid fa-robot me-1" aria-hidden="true"></i>Ask EpicBot</a>
+        </div>
+      </div>
+      {% endif %}
+    </section>
+  </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+  document.querySelector('[data-filter-toggle]')?.addEventListener('click', (e) => {
+    const panel = document.getElementById('filterPanel');
+    const open = panel.classList.toggle('open');
+    e.currentTarget.setAttribute('aria-expanded', open);
+    e.currentTarget.lastChild.textContent = open ? ' Hide' : ' Show';
+  });
+</script>
+{% endblock %}

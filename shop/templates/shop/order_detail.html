@@ -1,0 +1,103 @@
+{% extends "shop/layouts/main.html" %}
+{% load shop_extras %}
+
+{% block title %}Order {{ order.order_number }} | EpicOutlet{% endblock title %}
+{% block robots %}<meta name="robots" content="noindex">{% endblock %}
+
+{% block content %}
+<div class="container">
+  <header class="page-head">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb mb-2"><li class="breadcrumb-item"><a href="{% url 'orders' %}">My orders</a></li><li class="breadcrumb-item active" aria-current="page">{{ order.order_number }}</li></ol></nav>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div>
+        <h1>Order {{ order.order_number }}</h1>
+        <p class="text-muted-2 mb-0">Placed {{ order.created_at|date:"d M Y, h:i A" }}</p>
+      </div>
+      <span class="status-pill status-{{ order.status }} fs-6">{{ order.get_status_display }}</span>
+    </div>
+  </header>
+
+  {% if order.is_payable %}
+  <div class="surface p-4 mb-4 d-flex flex-wrap gap-3 align-items-center justify-content-between border-warning">
+    <div class="d-flex gap-3 align-items-center">
+      <div class="pause-icon" style="width:52px;height:52px;font-size:1.2rem"><i class="fa-solid fa-pause" aria-hidden="true"></i></div>
+      <div>
+        <strong>{% if order.payment_status == 'paused' %}Payment paused (demo store){% elif order.payment_status == 'failed' %}Last payment attempt failed{% else %}Awaiting payment{% endif %}</strong>
+        <div class="small text-muted-2">{% if payment_live %}Complete payment to confirm this order.{% else %}This is a demo store — no money is charged.{% endif %}</div>
+      </div>
+    </div>
+    <div class="d-flex gap-2">
+      <button type="button" class="btn btn-primary" data-pay-order="{% url 'order_pay' order.order_number %}">
+        <span class="btn-label">Pay ₹{{ order.total|inr }}</span><span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+      </button>
+      <form method="post" action="{% url 'order_cancel' order.order_number %}" onsubmit="return confirm('Cancel this order?')">{% csrf_token %}
+        <button type="submit" class="btn btn-ghost text-danger">Cancel order</button>
+      </form>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if order.status != 'cancelled' and order.status != 'pending_payment' %}
+  <section class="surface p-4 mb-4" aria-labelledby="track-title">
+    <h2 id="track-title" class="h5 mb-4">Tracking</h2>
+    {% if order.status == 'on_hold' %}
+    <div class="alert alert-danger mb-0">This order is on hold — our team will contact you shortly. If it can't be fulfilled you'll receive a full refund.</div>
+    {% else %}
+    <ol class="timeline">
+      {% for step in timeline %}
+      <li class="{% if step.done %}done{% endif %} {% if step.current %}current{% endif %}" {% if step.current %}aria-current="step"{% endif %}>
+        <span class="dot">{% if step.done %}<i class="fa-solid fa-check" aria-hidden="true"></i>{% endif %}</span>
+        {{ step.label }}
+        {% if step.at %}<small>{{ step.at|date:"d M, h:i A" }}</small>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+    {% if order.tracking_number %}<p class="mt-4 mb-0 small"><strong>{{ order.courier|default:"Courier" }}</strong> tracking number: <code>{{ order.tracking_number }}</code></p>{% endif %}
+    {% endif %}
+  </section>
+  {% endif %}
+
+  <div class="row g-4">
+    <div class="col-lg-8">
+      <section class="surface px-3 px-md-4" aria-label="Items">
+        {% for item in order.items.all %}
+        <div class="line-item">
+          {% if item.product %}<a href="{{ item.product.get_absolute_url }}"><img src="{{ item.product.product_image|cdn:176 }}" alt="{{ item.product_name }}" loading="lazy" width="88" height="88"></a>
+          {% else %}<div class="rounded-3 bg-body-secondary" style="width:88px;height:88px"></div>{% endif %}
+          <div>
+            <div class="name">{{ item.product_name }}</div>
+            <div class="meta">{{ item.vendor }} · ₹{{ item.unit_price|inr }} × {{ item.quantity }}</div>
+          </div>
+          <strong>₹{{ item.line_total|inr }}</strong>
+        </div>
+        {% endfor %}
+      </section>
+    </div>
+    <div class="col-lg-4">
+      <aside class="surface p-4 mb-4">
+        <h2 class="h6 text-uppercase text-muted-2">Payment</h2>
+        <div class="summary-row"><span>Subtotal</span><span>₹{{ order.subtotal|inr }}</span></div>
+        <div class="summary-row"><span>Delivery</span><span>{% if order.shipping_fee %}₹{{ order.shipping_fee|inr }}{% else %}Free{% endif %}</span></div>
+        <div class="summary-row total"><span>Total</span><span>₹{{ order.total|inr }}</span></div>
+        <p class="small mt-2 mb-0">Status: <strong>{{ order.get_payment_status_display }}</strong>{% if order.razorpay_payment_id %} · <code>{{ order.razorpay_payment_id }}</code>{% endif %}</p>
+      </aside>
+      <aside class="surface p-4">
+        <h2 class="h6 text-uppercase text-muted-2">Delivering to</h2>
+        <address class="mb-0">
+          <strong>{{ order.full_name }}</strong><br>
+          {{ order.address_line1 }}<br>
+          {% if order.address_line2 %}{{ order.address_line2 }}<br>{% endif %}
+          {{ order.city }}, {{ order.state }} {{ order.pincode }}<br>
+          <span class="text-muted-2">{{ order.phone }} · {{ order.email }}</span>
+        </address>
+      </aside>
+    </div>
+  </div>
+</div>
+{% include "shop/inc/payment_paused_modal.html" %}
+{% endblock content %}
+
+{% block script %}
+{% if order.is_payable and payment_live %}<script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>{% endif %}
+{% load static %}<script src="{% static 'js/checkout.js' %}"></script>
+{% endblock %}

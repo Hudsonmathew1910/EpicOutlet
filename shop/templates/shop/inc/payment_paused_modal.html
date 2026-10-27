@@ -1,0 +1,16 @@
+<div class="modal fade" id="paymentPausedModal" tabindex="-1" aria-labelledby="paymentPausedTitle" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-2">
+      <div class="modal-body text-center p-4">
+        <div class="pause-icon mb-3"><i class="fa-solid fa-pause" aria-hidden="true"></i></div>
+        <h2 class="h4" id="paymentPausedTitle">Payment paused</h2>
+        <p class="text-muted-2 mb-2">EpicOutlet is a demo store, so the payment step is paused and <strong>no money has been charged</strong>.</p>
+        <p class="mb-0">Order <strong data-paused-order></strong> for <strong data-paused-amount></strong> is saved as <em>Awaiting payment</em>.</p>
+      </div>
+      <div class="modal-footer border-0 justify-content-center pb-4">
+        <a href="#" class="btn btn-primary" data-paused-link>View order</a>
+        <button type="button" class="btn btn-ghost" data-bs-dismiss="modal">Stay here</button>
+      </div>
+    </div>
+  </div>
+</div>

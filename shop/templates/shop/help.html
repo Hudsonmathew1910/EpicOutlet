@@ -1,0 +1,58 @@
+{% extends "shop/layouts/main.html" %}
+{% load shop_extras %}
+
+{% block title %}Help Center – Shipping, Returns & Payments | EpicOutlet{% endblock title %}
+{% block meta_description %}EpicOutlet help: delivery charges and times, 7-day returns, cancellations and accepted payment methods.{% endblock %}
+
+{% block content %}
+<div class="container pt-3">
+  <div class="row g-3">
+    <div class="col-lg-3">
+      <nav class="surface help-nav py-2" aria-label="Help topics">
+        <a href="#shipping">Shipping &amp; delivery</a>
+        <a href="#returns">Returns</a>
+        <a href="#cancellation">Cancellation</a>
+        <a href="#payments">Payments</a>
+        <a href="#orders">Tracking your order</a>
+        <a href="#epicbot">EpicBot assistant</a>
+      </nav>
+    </div>
+    <div class="col-lg-9">
+      <div class="surface">
+        <div class="help-section">
+          <h1 class="h4 mb-1">Help Center</h1>
+          <p class="text-muted-2 mb-0">Answers to common questions. Need something else? <a href="{% url 'chat' %}">Ask EpicBot</a>.</p>
+        </div>
+        <section class="help-section" id="shipping">
+          <h2>Shipping &amp; delivery</h2>
+          <ul class="mb-0">
+            <li>Delivery is <strong>free on orders of ₹{{ free_shipping_threshold|inr }} or more</strong>. Smaller orders have a ₹{{ shipping_fee }} delivery charge.</li>
+            <li>Orders are usually delivered within <strong>{{ delivery_min }}–{{ delivery_max }} business days</strong> after payment (Monday–Saturday).</li>
+            <li>You can buy up to {{ max_qty }} units of any one item per order.</li>
+          </ul>
+        </section>
+        <section class="help-section" id="returns">
+          <h2>Returns</h2>
+          <p class="mb-0">Most items can be returned within <strong>7 days of delivery</strong> in their original condition and packaging. Contact us with your order number to start a return.</p>
+        </section>
+        <section class="help-section" id="cancellation">
+          <h2>Cancellation</h2>
+          <p class="mb-0">You can cancel an order yourself from <a href="{% url 'orders' %}">Orders</a> until it is paid. After payment, contact us and we'll help.</p>
+        </section>
+        <section class="help-section" id="payments">
+          <h2>Payments</h2>
+          <p class="mb-0">Payments are processed securely by Razorpay: UPI, credit and debit cards, netbanking and wallets. We never ask for your card details, OTP or UPI PIN by phone, email or chat. Cash on delivery is not available.</p>
+        </section>
+        <section class="help-section" id="orders">
+          <h2>Tracking your order</h2>
+          <p class="mb-0">Open <a href="{% url 'orders' %}">Orders</a> to see live status — paid, processing, shipped, out for delivery and delivered — with courier and tracking number once shipped.</p>
+        </section>
+        <section class="help-section" id="epicbot">
+          <h2>EpicBot assistant</h2>
+          <p class="mb-0">EpicBot can find and compare products, show deals and reviews, add items to your cart when you ask, and tell you when your order will arrive. It only uses EpicOutlet's live store data.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

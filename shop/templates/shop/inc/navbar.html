@@ -1,54 +1,88 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top navdrop" style="height: 50px;">
-  <div class="container" id="nav-mar">
-    <a class="navbar-brand" style='font-size: 25px;' id="title" href="{% url "home" %}"><img class="" src="{% static 'images/EP2.png' %}" alt="EpicOutlet Logo" style="height:40px; width:auto; margin-bottom: 5px;"> EpicOutlet</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav" >
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active navu" aria-current="page" href="{% url "home" %}"><i class="fa fa-home"></i> Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navu" href="{% url "collection" %}"><i class="fa fa-list"></i> Collection</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navu" href="{% url "chat" %}"><i class="fa fa-robot"></i> Shop-Bot</a>
-        </li>
-        {% if request.user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link navu" href="{% url "cart" %}"><i class="fa fa-shopping-cart"></i> Cart</a>
-        </li>
-        <li class="nav-item" >
-              <button class="btn btn-dark acc-name" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-user"></i> {{ request.user.username }}
-              </button>
-              <ul class="dropdown-menu dropdown-menu-dark navdrop" id="inner-menu" style="right:0; left:auto; top:95%;">
-                <li class="nav-item">
-                  <a class="nav-link navu" href="{% url "profile" %}"> <i class="fa fa-id-badge"></i> Profile</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link navu lout" href="{% url "logout" %}"> <i class="fa fa-sign-out"></i> Logout</a>
-                </li>
-              </ul>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <button class="btn btn-dark acc-name" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-user"></i> Account
-              </button>
-              <ul class="dropdown-menu dropdown-menu-dark navdrop" id="inner-menu" style="right:0; left:auto; top:95%;">
-                <li class="nav-item">
-                  <a class="nav-link navu" href="{% url "register" %}"> <i class="fa fa-user-plus"></i> Register</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link navu lin" href="{% url "login" %}"> <i class="fa fa-sign-in"></i> Login</a>
-                </li>
-              </ul>
-        </li>
-        {% endif %}
-      </ul>
+{% with url_name=request.resolver_match.url_name %}
+<header class="site-header">
+  <div class="container">
+    <div class="header-main">
+      <a class="brand" href="{% url 'home' %}" aria-label="EpicOutlet home">
+        <img src="{% static 'images/logo-header.png' %}" alt="EpicOutlet" width="58" height="38">
+        <small>Shop <b>smarter</b></small>
+      </a>
+
+      <form class="header-search" role="search" action="{% url 'home' %}" method="get" data-suggest>
+        <label for="searchCategory" class="visually-hidden">Search in category</label>
+        <select id="searchCategory" name="category" class="form-select search-cat">
+          <option value="">All</option>
+          {% for cat in nav_categories %}
+          <option value="{{ cat.name }}" {% if request.GET.category|lower == cat.name|lower %}selected{% endif %}>{{ cat.name }}</option>
+          {% endfor %}
+        </select>
+        <label for="navSearch" class="visually-hidden">Search products, brands and more</label>
+        <input id="navSearch" class="form-control" type="search" name="search" placeholder="Search for products, brands and more" value="{{ request.GET.search|default:'' }}" autocomplete="off" aria-autocomplete="list" aria-controls="searchSuggest">
+        <button class="search-btn" type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+        <div class="search-suggest" id="searchSuggest" role="listbox"></div>
+      </form>
+
+      <nav class="header-links" aria-label="Account and cart">
+        <div class="dropdown">
+          <button class="hlink" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-regular fa-user ico d-lg-none" aria-hidden="true"></i>
+            <span>
+              <span class="l1">Hello, {% if request.user.is_authenticated %}{{ request.user.first_name|default:request.user.username|truncatechars:14 }}{% else %}sign in{% endif %}</span>
+              <span class="l2 hide-mobile">Account &amp; Lists <i class="fa-solid fa-caret-down small" aria-hidden="true"></i></span>
+            </span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end account-menu">
+            {% if request.user.is_authenticated %}
+              <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-regular fa-circle-user me-2" aria-hidden="true"></i>My profile</a>
+              <a class="dropdown-item" href="{% url 'orders' %}"><i class="fa-solid fa-box me-2" aria-hidden="true"></i>Orders</a>
+              <a class="dropdown-item" href="{% url 'fav_page' %}"><i class="fa-regular fa-heart me-2" aria-hidden="true"></i>Wishlist</a>
+              <a class="dropdown-item" href="{% url 'password_change' %}"><i class="fa-solid fa-key me-2" aria-hidden="true"></i>Change password</a>
+              {% if request.user.is_staff %}
+              <a class="dropdown-item" href="{% url 'admin_dashboard' %}"><i class="fa-solid fa-chart-line me-2" aria-hidden="true"></i>Seller dashboard</a>
+              {% endif %}
+              <div class="dropdown-divider"></div>
+              <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+                <button type="submit" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket me-2" aria-hidden="true"></i>Sign out</button>
+              </form>
+            {% else %}
+              <div class="signin">
+                <a href="{% url 'login' %}?next={{ request.get_full_path|urlencode }}" class="btn btn-buy w-100 text-none">Sign in</a>
+                <div class="small mt-2">New customer? <a href="{% url 'register' %}">Start here.</a></div>
+              </div>
+              <a class="dropdown-item" href="{% url 'orders' %}"><i class="fa-solid fa-box me-2" aria-hidden="true"></i>Orders</a>
+              <a class="dropdown-item" href="{% url 'fav_page' %}"><i class="fa-regular fa-heart me-2" aria-hidden="true"></i>Wishlist</a>
+            {% endif %}
+          </div>
+        </div>
+
+        <a class="hlink hide-mobile" href="{% url 'orders' %}">
+          <span><span class="l1">Returns</span><span class="l2">&amp; Orders</span></span>
+        </a>
+
+        <a class="hlink" href="{% url 'fav_page' %}" aria-label="Wishlist, {{ wishlist_count }} items">
+          <span class="ico"><i class="fa-regular fa-heart" aria-hidden="true"></i><i class="cart-count" data-wishlist-count data-count="{{ wishlist_count }}">{% if wishlist_count %}{{ wishlist_count }}{% endif %}</i></span>
+        </a>
+
+        <a class="hlink" href="{% url 'cart' %}" aria-label="Cart, {{ cart_count }} items">
+          <span class="ico"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><i class="cart-count" data-cart-count data-count="{{ cart_count }}">{% if cart_count %}{{ cart_count }}{% endif %}</i></span>
+          <span class="l2 hide-mobile">Cart</span>
+        </a>
+      </nav>
     </div>
   </div>
-</nav>
+
+  <nav class="header-nav" aria-label="Departments">
+    <div class="container inner">
+      <a href="{% url 'collection' %}" class="{% if url_name == 'collection' %}active{% endif %}"><i class="fa-solid fa-bars me-1" aria-hidden="true"></i> All</a>
+      <a href="{% url 'home' %}?sort=discount" class="{% if request.GET.sort == 'discount' %}active{% endif %}">Today's Deals</a>
+      <a href="{% url 'home' %}?trending=1" class="{% if request.GET.trending == '1' %}active{% endif %}">Trending</a>
+      {% for cat in nav_categories %}
+      <a href="{{ cat.get_absolute_url }}" class="{% if url_name == 'collection_view' and request.resolver_match.kwargs.name == cat.name %}active{% endif %}">{{ cat.name }}</a>
+      {% endfor %}
+      <a href="{% url 'help' %}" class="{% if url_name == 'help' %}active{% endif %}">Customer Service</a>
+      <a href="{% url 'chat' %}" class="ai-link {% if url_name == 'chat' %}active{% endif %}"><i class="fa-solid fa-robot me-1" aria-hidden="true"></i>Ask EpicBot</a>
+      <span class="nav-note hide-mobile"><i class="fa-solid fa-truck-fast me-1" aria-hidden="true"></i>Free delivery on orders over ₹999</span>
+    </div>
+  </nav>
+</header>
+{% endwith %}

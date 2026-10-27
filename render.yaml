@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: epicoutlet
+    runtime: python
+    plan: free
+    buildCommand: bash build.sh
+    startCommand: gunicorn epicoutlet.wsgi --workers 3 --timeout 60 --access-logfile -
+    healthCheckPath: /robots.txt
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.7
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: PAYMENT_DEMO_MODE
+        value: "True"
+      - key: DATABASE_URL
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: HEROS_API_KEY
+        sync: false
+      - key: HEROS_BASE_URL
+        sync: false
+      - key: HEROS_MODEL
+        sync: false
+      - key: Groq_API_KEY_1
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false

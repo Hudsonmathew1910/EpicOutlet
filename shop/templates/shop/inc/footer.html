@@ -1,35 +1,62 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<footer class="mt-auto" style="background: #F0F5F9;" >
+{% load static %}
+<a href="#top" class="back-to-top">Back to top</a>
+<footer class="eo-footer">
   <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <h5>About Us</h5>
-        <p> EpicOutlet is your one-stop online store for electronics, fashion, groceries, and more. We deliver quality products with fast and reliable service to make your shopping experience seamless.</p>
-      </div>
-      <div class="col-md-4 mb-3">
-        <h5>Quick Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="{% url "home" %}" class="text-decoration-none text-dark">Home</a></li>
-          <li><a href="{% url "collection" %}" class="text-decoration-none text-dark">Collections</a></li>
-          <li><a href="{% url "profile" %}" class="text-decoration-none text-dark">Account</a></li>
-          <li><a href="{% url "cart" %}" class="text-decoration-none text-dark">Cart</a></li>
-          <li><a href="{% url "fav_page" %}" class="text-decoration-none text-dark">Favourite</a></li>
+    <div class="row g-4">
+      <div class="col-6 col-md-3 col-lg-2">
+        <h2>Shop</h2>
+        <ul class="list-unstyled d-grid gap-2 mb-0">
+          {% for cat in nav_categories|slice:":6" %}
+          <li><a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'home' %}?sort=discount">Today's Deals</a></li>
         </ul>
       </div>
-      <div class="col-md-4 mb-3">
-        <h5>Follow Us</h5>
-        <ul class="list-inline social-icons">
-          <li class="list-inline-item"><a href="https://www.linkedin.com/in/hudson-mathew-J" class="text-white"><i class="bi bi-linkedin" style="color:#0077b5; font-size:24px;" ></i></a></li>
-          <li class="list-inline-item"><a href="https://github.com/Hudsonmathew1910" class="text-white"><i class="bi bi-github" style="color:#333; font-size:24px;"></i></a></li>
-          <li class="list-inline-item"><a href="mailto:hudsonmathew2004@gmail.com" class="text-white"><i class="bi bi-envelope-fill" style="color:#D44638; font-size:24px;"></i></a></li>
+      <div class="col-6 col-md-3 col-lg-2">
+        <h2>Your account</h2>
+        <ul class="list-unstyled d-grid gap-2 mb-0">
+          <li><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'orders' %}">Orders</a></li>
+          <li><a href="{% url 'fav_page' %}">Wishlist</a></li>
+          <li><a href="{% url 'cart' %}">Cart</a></li>
         </ul>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2">
+        <h2>Help</h2>
+        <ul class="list-unstyled d-grid gap-2 mb-0">
+          <li><a href="{% url 'help' %}#payments">Payments</a></li>
+          <li><a href="{% url 'help' %}#shipping">Shipping</a></li>
+          <li><a href="{% url 'help' %}#returns">Returns</a></li>
+          <li><a href="{% url 'help' %}#cancellation">Cancellation</a></li>
+          <li><a href="{% url 'chat' %}">Ask EpicBot</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2">
+        <h2>Social</h2>
+        <div class="social">
+          <a href="https://www.linkedin.com/in/hudson-mathew-J" aria-label="LinkedIn" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://github.com/Hudsonmathew1910" aria-label="GitHub" rel="noopener" target="_blank"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <h2>Contact us</h2>
+        <p class="contact mb-0">
+          EpicOutlet Online Store<br>
+          Email: <a href="mailto:hudsonmathew2004@gmail.com">hudsonmathew2004@gmail.com</a><br>
+          Questions about an order? Open <a href="{% url 'orders' %}">Orders</a> or ask <a href="{% url 'chat' %}">EpicBot</a>.
+        </p>
       </div>
     </div>
-    <hr class="mb-4">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p>&copy; 2025 EpicOutlet. All rights reserved.</p>
-      </div>
+    <div class="footer-bottom">
+      <span><a href="{% url 'register' %}"><i class="fa-solid fa-store me-1 text-warning" aria-hidden="true"></i>Become a customer</a></span>
+      <span><a href="{% url 'help' %}"><i class="fa-solid fa-circle-question me-1 text-warning" aria-hidden="true"></i>Help Center</a></span>
+      <span>&copy; {% now "Y" %} EpicOutlet</span>
+      <span class="pay" aria-label="Accepted payment methods: Visa, Mastercard, RuPay cards, UPI, netbanking">
+        <i class="fa-brands fa-cc-visa" aria-hidden="true"></i>
+        <i class="fa-brands fa-cc-mastercard" aria-hidden="true"></i>
+        <span class="upi">UPI</span>
+        <i class="fa-solid fa-building-columns" aria-hidden="true" title="Netbanking"></i>
+      </span>
     </div>
   </div>
 </footer>

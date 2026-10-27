@@ -1,0 +1,18 @@
+{% extends "shop/layouts/main.html" %}
+
+{% block title %}Page not found | EpicOutlet{% endblock title %}
+{% block robots %}<meta name="robots" content="noindex">{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="empty-state">
+    <div class="icon"><i class="fa-solid fa-compass" aria-hidden="true"></i></div>
+    <h1 class="h2">We couldn't find that page</h1>
+    <p class="text-muted-2">The link may be broken or the page may have moved.</p>
+    <div class="d-flex justify-content-center gap-2">
+      <a href="{% url 'home' %}" class="btn btn-primary">Back to the store</a>
+      <a href="{% url 'chat' %}" class="btn btn-ghost">Ask EpicBot</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}

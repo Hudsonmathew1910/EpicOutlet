@@ -1,0 +1,28 @@
+{% load shop_extras %}
+<article class="product-card{% if not item.in_stock %} oos-dim{% endif %}">
+  <div class="media">
+    {% if not item.in_stock %}<span class="badge-pill oos">Out of stock</span>
+    {% endif %}
+    <button type="button" class="wish-btn {% if item.id in wishlist_ids %}active{% endif %}" data-wishlist="{{ item.id }}"
+            aria-pressed="{% if item.id in wishlist_ids %}true{% else %}false{% endif %}" aria-label="Save {{ item.name }} to wishlist">
+      <i class="fa-regular fa-heart" aria-hidden="true"></i>
+    </button>
+    <img src="{{ item.product_image|cdn_fit:400 }}" alt="{{ item.name }}" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+    <a class="title" href="{{ item.get_absolute_url }}">{{ item.name }}</a>
+    <span class="vendor">{{ item.vendor }}</span>
+    {% if item.rating_count %}
+    <div class="rating-line"><span class="rating-badge">{{ item.avg_rating|floatformat:1 }} <i class="fa-solid fa-star" aria-hidden="true"></i></span> ({{ item.rating_count }})</div>
+    {% endif %}
+    <div class="price-row">
+      <span class="price">₹{{ item.selling_price|inr }}</span>
+      {% if item.discount_percent %}
+      <span class="price-old">₹{{ item.orginal_price|inr }}</span>
+      <span class="price-off">{{ item.discount_percent }}% off</span>
+      {% endif %}
+    </div>
+    {% if item.is_low_stock %}<span class="stock-note">Only {{ item.quantity }} left in stock</span>
+    {% elif item.selling_price >= 999 and item.in_stock %}<span class="deliv-note">Free delivery</span>{% endif %}
+  </div>
+</article>
